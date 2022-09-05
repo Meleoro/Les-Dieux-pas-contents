@@ -13,6 +13,7 @@ public class Dialogue1 : MonoBehaviour
     public TextMeshProUGUI nom;
 
 
+    // FONCTION CONTENANT TOUS LES DIALOGUES AVANT LE MINI JEU
     public void AvancerDialogue1()
     {
         numeroDialogue1 += 1;
@@ -29,12 +30,15 @@ public class Dialogue1 : MonoBehaviour
             dialogue.text = "Oui oui vous avez raison !";
         }
 
+        // Passage à la partie suivante
         else
         {
             MainManager.Instance.partie = 2;
         }
     }
 
+
+    // FONCTION CONTENANT TOUS LES DIALOGUES APRES LE MINI JEU
     public void AvancerDialogue2()
     {
         numeroDialogue2 += 1;
@@ -44,6 +48,7 @@ public class Dialogue1 : MonoBehaviour
 
         }
 
+        // Passage à la partie suivante
         else
         {
             MainManager.Instance.numeroScript += 1;
