@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PanierController : MonoBehaviour
     [SerializeField] private Vector3 worldPos;
     public BoxCollider2D Collider;
     public Rigidbody2D rb;
+    public SpawnIngredients scoreManager;
     
     // Start is called before the first frame update
     void Start()
@@ -25,5 +27,14 @@ public class PanierController : MonoBehaviour
         var transformPosition = transform.position;
         transformPosition.x = worldPos.x;
         transform.position = transformPosition;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Ingredient"))
+        {
+            Destroy(col.gameObject);
+            scoreManager.badScore++;
+        }
     }
 }
