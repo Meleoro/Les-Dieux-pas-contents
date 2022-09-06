@@ -19,6 +19,10 @@ public class RefChara : MonoBehaviour
 
     public GameObject odinHeureux;
     public GameObject odinColere;
+    
+    public GameObject ange;
+    
+    public GameObject Satan;
 
 
     private void Awake()
