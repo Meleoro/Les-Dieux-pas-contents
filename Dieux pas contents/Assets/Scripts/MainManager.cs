@@ -65,7 +65,7 @@ public class MainManager : MonoBehaviour
         }
 
 
-
+        Debug.Log(noControl);
         // TRANSITION ENTREE DANS SCENE DE MINI JEU
         if (partie == 2 && SceneManager.GetActiveScene().name != "Oscar")
         {
@@ -82,6 +82,8 @@ public class MainManager : MonoBehaviour
                 ReferencesUI.Instance.fonds.SetActive(false);
 
                 timer = 0;
+
+                noControl = true;
             }
         }
 
@@ -89,6 +91,7 @@ public class MainManager : MonoBehaviour
         // TRANSITION SORTIE DU MINI JEU
         else if((partie == 3 || partie == 4) && noControl)
         {
+            Debug.Log(19999);
             timer += Time.deltaTime;
 
             if (timer > 2.2f)
@@ -157,8 +160,6 @@ public class MainManager : MonoBehaviour
 
     public void SelectionDialogue()
     {
-        Debug.Log(12);
-
         // INTRO
         if (numeroScript == 0)
         {
@@ -185,6 +186,7 @@ public class MainManager : MonoBehaviour
             else if(partie == 3)
             {
                 FermetureScene(2);
+                noControl = true;
             }
 
             else
