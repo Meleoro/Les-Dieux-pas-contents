@@ -27,6 +27,9 @@ public class Dialogue2 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Odin";
             ReferencesUI.Instance.dialogue.text = "Pouahaha guerrier";
+
+            RefChara.Instance.odinHeureux.SetActive(true);
+            RefChara.Instance.odinColere.SetActive(false);
         }
 
         else if (numeroDialogue1 == 2)
@@ -53,6 +56,9 @@ public class Dialogue2 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Odin";
             ReferencesUI.Instance.dialogue.text = "OUI";
+
+            RefChara.Instance.odinHeureux.SetActive(false);
+            RefChara.Instance.odinColere.SetActive(true);
         }
 
         // Passage à la partie suivante
@@ -60,6 +66,8 @@ public class Dialogue2 : MonoBehaviour
         {
             MainManager.Instance.numeroScript += 1;
             MainManager.Instance.partie = 1;
+
+            RefChara.Instance.odinColere.SetActive(false);
         }
     }
 

@@ -9,6 +9,9 @@ public class RefChara : MonoBehaviour
     public GameObject zeusHeureux;
     public GameObject zeusColere;
 
+    public GameObject odinHeureux;
+    public GameObject odinColere;
+
 
     private void Awake()
     {

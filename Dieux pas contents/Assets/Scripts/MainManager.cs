@@ -111,7 +111,7 @@ public class MainManager : MonoBehaviour
                 {
                     noControl = false;
                     timer = 0;
-                    stop = true;
+                    stop = false;
                 }
             }
         }

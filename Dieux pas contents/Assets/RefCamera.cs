@@ -34,6 +34,6 @@ public class RefCamera : MonoBehaviour
     {
         shaking = true;
 
-        camera.DOShakePosition(duration, amplitude, 5, 90, true);
+        camera.DOShakePosition(duration, amplitude, 10, 90, true);
     }
 }
