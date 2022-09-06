@@ -38,15 +38,15 @@ public class OeufManager : MonoBehaviour
 
         if (score is >= 3 and < 6)
         {
-            panier.localScale = new Vector3()
+            panier.localScale = new Vector3(3, 1, 1);
         }
         else if (score is >= 6 and < 9)
         {
-            
+            panier.localScale = new Vector3(5, 1, 1);
         }
         else if (score == 9)
         {
-            
+            panier.localScale = new Vector3(11, 1, 1);
         }
         else if (score == 10 && !newScene)
         {
