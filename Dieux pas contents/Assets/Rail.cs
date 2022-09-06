@@ -18,7 +18,6 @@ public class Rail : MonoBehaviour
 
     public Vector3 LinearPosition(int segment, int next, float ration)
     {
-        Debug.Log(segment);
         Vector3 p1 = nodes[segment].position;
         Vector3 p2 = nodes[next].position;
 
