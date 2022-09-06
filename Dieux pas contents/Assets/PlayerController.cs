@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
         worldPos = Camera.main.ScreenToWorldPoint(panierPos);
 
         offset = transform.position - worldPos;
+
+        Ange.Instance.AngeApparait("Oui", 2, "Non", 1, "Oui", 2, "Non", 1, "AHAH", 3);
     }
 
     

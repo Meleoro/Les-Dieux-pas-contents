@@ -6,6 +6,7 @@ using DG.Tweening;
 public class Jesus : MonoBehaviour
 {
     public Rail rail;
+    public static Jesus Instance;
 
     private int currentSeg;
     private float transition;
@@ -28,53 +29,87 @@ public class Jesus : MonoBehaviour
 
 
     public bool cantAttack;
+    public bool surRail;
+    public bool launchAnimation;
+    public float timerGeneral;
 
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
         currentSeg = 1;
 
         currentHealth = health;
+
+
+        surRail = false;
+        cantAttack = true;
     }
 
 
     private void Update()
     {
-        if (currentSeg == 6)
-            nextSeg = 1;
+        timerGeneral += Time.deltaTime;
 
-        else
-            nextSeg = currentSeg + 1;
+        if(timerGeneral > 9 && timerGeneral < 10)
+        {
+            launchAnimation = true;
+        }
 
-        MouvementsJesus();
+        else if(timerGeneral > 10)
+        {
+            cantAttack = false;
+            surRail = true;
+        }
+
+
+        if (surRail)
+        {
+            if (currentSeg == 6)
+                nextSeg = 1;
+
+            else
+                nextSeg = currentSeg + 1;
+
+            MouvementsJesus();
+        }
+        
+        else if (launchAnimation)
+        {
+            transform.DOMoveY(0, 1);
+        }
+
+        
 
 
 
         // ATTAQUES
-        timer1 += Time.deltaTime;
-
-        if(timer1 > 0.03f)
+        if (!cantAttack)
         {
-            Attaque1();
-            timer1 = 0;
-        }
+            timer1 += Time.deltaTime;
+            if (timer1 > 0.03f)
+            {
+                Attaque1();
+                timer1 = 0;
+            }
 
+            timer2 += Time.deltaTime;
+            if (timer2 > 3 || (timer2 > 1.75f && currentHealth <= health / 2))
+            {
+                Attaque2();
+                timer2 = 0;
+            }
 
-        timer2 += Time.deltaTime;
-
-        if(timer2 > 3 || (timer2 > 1.75f && currentHealth <= health / 2))
-        {
-            Attaque2();
-            timer2 = 0;
-        }
-
-
-        timer3 += Time.deltaTime;
-
-        if(timer3 > 7 || (timer3 > 3f && currentHealth <= health/2))
-        {
-            Attaque3();
-            timer3 = 0;
+            timer3 += Time.deltaTime;
+            if (timer3 > 7 || (timer3 > 3f && currentHealth <= health / 2))
+            {
+                Attaque3();
+                timer3 = 0;
+            }
         }
 
 
