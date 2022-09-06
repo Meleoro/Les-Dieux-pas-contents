@@ -1729,6 +1729,12 @@ MonoBehaviour:
   oeufObject: {fileID: 8991953722046472746, guid: 30f1d2c5efac443408a01332531df112,
     type: 3}
   oeufRespawn: {x: 0, y: -7.71, z: 0}
+  text: {fileID: 695332843}
+  texte: {fileID: 1773471569}
+  panier: {fileID: 1799874485}
+  score: 0
+  badScore: 0
+  loseCondition: {fileID: 891585475}
 --- !u!61 &1799874489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2175,7 +2181,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 807218699}
     - target: {fileID: 1156624239385132613, guid: dd6a77e569928d2458e2029bce7ab2c8,
         type: 3}
       propertyPath: funnyText
