@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Intro : MonoBehaviour
 {
@@ -113,8 +114,14 @@ public class Intro : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Ange";
             StartCoroutine(TypeSentence("Hey Écoute !"));
+            RefChara.Instance.nous.GetComponent<Image>().DOFade(1, 0.3f);
             RefChara.Instance.nous.SetActive(false);
+            RefChara.Instance.nous.GetComponent<Image>().DOFade(0, 0.3f);
+            RefChara.Instance.ange.GetComponent<Image>().DOFade(0, 0);
             RefChara.Instance.ange.SetActive(true);
+            RefChara.Instance.ange.GetComponent<Image>().DOFade(1, 0.3f);
+            
+            
         }
         
         else if (numeroDialogue == 14)
@@ -146,8 +153,12 @@ public class Intro : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Elu";
             StartCoroutine(TypeSentence("(Ça a fonctionné ! Pas très fut fut les dieux...)"));
-            RefChara.Instance.nous.SetActive(true);
+            RefChara.Instance.ange.GetComponent<Image>().DOFade(1, 0.3f);
             RefChara.Instance.ange.SetActive(false);
+            RefChara.Instance.nous.SetActive(true);
+            RefChara.Instance.nous.GetComponent<Image>().DOFade(0, 0);
+            RefChara.Instance.nous.GetComponent<Image>().DOFade(1, 0.3f);
+       
         }
         
         else if (numeroDialogue == 19)
@@ -160,7 +171,10 @@ public class Intro : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("Coucou ça va mon chou o/ ?"));
+            RefChara.Instance.nous.GetComponent<Image>().DOFade(1, 0.3f);
             RefChara.Instance.nous.SetActive(false);
+            RefChara.Instance.Satan.GetComponent<Image>().DOFade(0, 0);
+            RefChara.Instance.Satan.GetComponent<Image>().DOFade(1, 0.3f);
             RefChara.Instance.Satan.SetActive(true);
         }
         
@@ -203,6 +217,7 @@ public class Intro : MonoBehaviour
         // PASSAGE A LA PARTIE SUIVANTE
         else
         {
+
             MainManager.Instance.transitionPerso = true;
 
             MainManager.Instance.FermetureScene(3);

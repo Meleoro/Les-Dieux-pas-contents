@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Dialogue1 : MonoBehaviour
 {
@@ -34,20 +35,76 @@ public class Dialogue1 : MonoBehaviour
 
         if(numeroDialogue1 == 1)
         {
-            ReferencesUI.Instance.nom.text = "Zeus";
-            StartCoroutine(TypeSentence( "Je suis beau ?!"));
+            ReferencesUI.Instance.nom.text = "???";
+            StartCoroutine(TypeSentence( "Garçon !"));
 
-            RefChara.Instance.zeusHeureux.SetActive(true);
+            RefChara.Instance.zeusHeureux.SetActive(false);
             RefChara.Instance.nous.SetActive(false);
+            RefChara.Instance.ange.SetActive(false);
+            RefChara.Instance.Satan.SetActive(false);
 
 
-            Ange.Instance.AngeApparait("Il est beau", 5);
+           // Ange.Instance.AngeApparait("Il est beau", 5);
         }
 
         else if (numeroDialogue1 == 2)
         {
             ReferencesUI.Instance.nom.text = "Zeus";
-            StartCoroutine(TypeSentence("Oui oui vous avez raison !"));
+            StartCoroutine(TypeSentence("Moi et ma minette on aimerait commander."));
+            RefChara.Instance.zeusHeureux.GetComponent<Image>().DOFade(0, 0);
+            RefChara.Instance.zeusHeureux.SetActive(true);
+            RefChara.Instance.zeusHeureux.GetComponent<Image>().DOFade(1, 0.3f);
+        }
+        
+        else if (numeroDialogue1 == 3)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentence(" Filet de bœuf sauce ambroisie ? Cuisse de carpeaux au nectar ? Hmm je vois que la réputation de votre établissement n’est pas infondée."));
+            
+          
+        }
+        
+        else if (numeroDialogue1 == 4)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentence("Alors, qu’est ce qui te ferais plaisir mon petit cœur en sucre ?"));
+            
+      
+        }
+        
+        else if (numeroDialogue1 == 5)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentence("Après tout ce n’est pas parce que c’est l’apocalypse qu’il ne faut pas se faire plaisir."));
+            
+         
+        }
+        
+        else if (numeroDialogue1 == 6)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentence("N’est-ce pas mon petit chouchou d’amour ?"));
+            
+           
+        }
+        
+        else if (numeroDialogue1 == 7)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentence("Servez-nous ce que vous avez de meilleur, Garçon. Montrez ce que votre établissement à de mieux à offrir. (J’espère pour vous que ça plaira à mon doudou en miel)."));
+            
+           
+        }
+        
+        else if (numeroDialogue1 == 8)
+        {
+            ReferencesUI.Instance.nom.text = "Elu";
+            StartCoroutine(TypeSentence("C'est à moi de jouer !"));
+            RefChara.Instance.zeusHeureux.GetComponent<Image>().DOFade(1, 0.3f);
+            RefChara.Instance.zeusHeureux.SetActive(false);
+            RefChara.Instance.nous.GetComponent<Image>().DOFade(0, 0);
+            RefChara.Instance.nous.SetActive(true);
+            RefChara.Instance.nous.GetComponent<Image>().DOFade(1, 0.3f);
         }
 
         // Passage à la partie suivante
@@ -91,9 +148,11 @@ public class Dialogue1 : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             ReferencesUI.Instance.dialogue.text += letter;
+            MainManager.Instance.noControl = true;
 
             yield return new WaitForSeconds(0.03f);
         }
+        MainManager.Instance.noControl = false;
     }
 
     IEnumerator TypeSentenceLent(string sentence)

@@ -67,13 +67,13 @@ public class MainManager : MonoBehaviour
 
 
         // TRANSITION ENTREE DANS SCENE DE MINI JEU
-        if (partie == 2 && SceneManager.GetActiveScene().name != "Oscar")
+        if (partie == 2 && SceneManager.GetActiveScene().name != "Zeus")
         {
             timer += Time.deltaTime;
 
             if(timer > 2.2f)
             {
-                SceneManager.LoadScene("Oscar");
+                SceneManager.LoadScene("Zeus");
                 OuvertureScene(2);
 
                 RefChara.Instance.gameObject.SetActive(false);
