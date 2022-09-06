@@ -1,25 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class Dialogue1 : MonoBehaviour
+public class Dialogue4 : MonoBehaviour
 {
     private int numeroDialogue1;
     private int numeroDialogue2;
 
-    public static Dialogue1 Instance;
+    public static Dialogue4 Instance;
 
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-
-        if (Instance == null)
-            Instance = this;
-
-        else
-            Destroy(gameObject);
+        Instance = this;
 
         numeroDialogue1 = 0;
         numeroDialogue2 = 0;
@@ -32,21 +25,20 @@ public class Dialogue1 : MonoBehaviour
     {
         numeroDialogue1 += 1;
 
-        if(numeroDialogue1 == 1)
+        if (numeroDialogue1 == 1)
         {
-            ReferencesUI.Instance.nom.text = "Zeus";
-            StartCoroutine(TypeSentence( "Je suis beau ?!"));
-
-            RefChara.Instance.zeusHeureux.SetActive(true);
-            RefChara.Instance.nous.SetActive(false);
+            ReferencesUI.Instance.nom.text = "Odin";
+            StartCoroutine(TypeSentence("Je suis beau ?!"));
 
 
-            Ange.Instance.AngeApparait("Il est beau", 5);
+            RefChara.Instance.odinHeureux.SetActive(true);
+
+            RefChara.Instance.intiColere.SetActive(false);
         }
 
         else if (numeroDialogue1 == 2)
         {
-            ReferencesUI.Instance.nom.text = "Zeus";
+            ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentence("Oui oui vous avez raison !"));
         }
 
@@ -66,11 +58,11 @@ public class Dialogue1 : MonoBehaviour
 
         if (numeroDialogue2 == 1)
         {
-            ReferencesUI.Instance.nom.text = "Zeus";
+            ReferencesUI.Instance.nom.text = "Inti";
             StartCoroutine(TypeSentenceLent("Sthana"));
 
-            RefChara.Instance.zeusHeureux.SetActive(false);
-            RefChara.Instance.zeusColere.SetActive(true);
+            RefChara.Instance.intiContent.SetActive(false);
+            RefChara.Instance.intiColere.SetActive(true);
         }
 
         // Passage à la partie suivante
@@ -84,7 +76,7 @@ public class Dialogue1 : MonoBehaviour
         }
     }
 
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence(string sentence)
     {
         ReferencesUI.Instance.dialogue.text = "";
 

@@ -23,16 +23,18 @@ public class Dialogue2 : MonoBehaviour
 
         if (numeroDialogue1 == 1)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Make Make";
             ReferencesUI.Instance.dialogue.text = "Pouahaha guerrier";
 
-            RefChara.Instance.odinHeureux.SetActive(true);
-            RefChara.Instance.odinColere.SetActive(false);
+            RefChara.Instance.makeMakeContent.SetActive(true);
+            RefChara.Instance.makeMakeColere.SetActive(false);
+
+            RefChara.Instance.zeusColere.SetActive(false);
         }
 
         else if (numeroDialogue1 == 2)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Make Make";
             ReferencesUI.Instance.dialogue.text = "Diner";
         }
 
@@ -52,20 +54,21 @@ public class Dialogue2 : MonoBehaviour
 
         if (numeroDialogue2 == 1)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Make Make";
             ReferencesUI.Instance.dialogue.text = "OUI";
 
-            RefChara.Instance.odinHeureux.SetActive(false);
-            RefChara.Instance.odinColere.SetActive(true);
+            RefChara.Instance.makeMakeContent.SetActive(false);
+            RefChara.Instance.makeMakeColere.SetActive(true);
         }
 
         // Passage à la partie suivante
         else
         {
-            MainManager.Instance.numeroScript += 1;
-            MainManager.Instance.partie = 1;
+            MainManager.Instance.FermetureScene(3);
 
-            RefChara.Instance.odinColere.SetActive(false);
+            MainManager.Instance.partie += 1;
+
+            MainManager.Instance.transitionPerso = true;
         }
     }
 

@@ -30,7 +30,7 @@ public class Intro : MonoBehaviour
 
         if (numeroDialogue == 1)
         {
-            ReferencesUI.Instance.nom.text = "Elu de la prophétie";
+            ReferencesUI.Instance.nom.text = "Elu";
             StartCoroutine(TypeSentence("Ca, c'est moi"));
 
             RefChara.Instance.nous.SetActive(true);
@@ -38,20 +38,21 @@ public class Intro : MonoBehaviour
 
         else if (numeroDialogue == 2)
         {
-            ReferencesUI.Instance.nom.text = "Elu de la prophétie";
+            ReferencesUI.Instance.nom.text = "Elu";
             StartCoroutine(TypeSentence("Le genre de gars sans histoire"));
 
+
+            // DEZOOM
             RefChara.Instance.nous.transform.DOScale(new Vector3(1, 1, 1), 10);
             RefChara.Instance.nous.transform.DOLocalMove(originalPos, 10);
         }
 
-        // Passage à la partie suivante
+        // PASSAGE A LA PARTIE SUIVANTE
         else
         {
-            MainManager.Instance.numeroScript += 1;
-            MainManager.Instance.numeroScript = 1;
+            MainManager.Instance.transitionPerso = true;
 
-            MainManager.Instance.SelectionDialogue();
+            MainManager.Instance.FermetureScene(3);
         }
     }
 

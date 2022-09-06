@@ -10,11 +10,14 @@ public class MainManager : MonoBehaviour
     public Intro intro;
     public Dialogue1 dialogue1;
     public Dialogue2 dialogue2;
+    public Dialogue3 dialogue3;
+    public Dialogue4 dialogue4;
 
     public int numeroScript;
     public int partie;
 
     public bool noControl;
+    public bool transitionPerso;
 
     public float timer;
     private bool stop;
@@ -32,6 +35,7 @@ public class MainManager : MonoBehaviour
 
         numeroScript = 0;
         partie = 1;
+        timer = 0;
     }
 
 
@@ -39,7 +43,7 @@ public class MainManager : MonoBehaviour
     {
         ReferencesUI.Instance.fondu.DOFade(1, 0);
 
-        OuvertureScene();
+        OuvertureScene(4);
     }
 
 
@@ -61,7 +65,8 @@ public class MainManager : MonoBehaviour
         }
 
 
-        // ENTREE DANS SCENE DE MINI JEU
+
+        // TRANSITION ENTREE DANS SCENE DE MINI JEU
         if (partie == 2 && SceneManager.GetActiveScene().name != "Oscar")
         {
             timer += Time.deltaTime;
@@ -69,7 +74,7 @@ public class MainManager : MonoBehaviour
             if(timer > 2.2f)
             {
                 SceneManager.LoadScene("Oscar");
-                OuvertureScene();
+                OuvertureScene(2);
 
                 RefChara.Instance.gameObject.SetActive(false);
                 ReferencesUI.Instance.dialogue.gameObject.SetActive(false);
@@ -80,7 +85,8 @@ public class MainManager : MonoBehaviour
             }
         }
 
-        // SORTIE DU MINI JEU
+
+        // TRANSITION SORTIE DU MINI JEU
         else if((partie == 3 || partie == 4) && noControl)
         {
             timer += Time.deltaTime;
@@ -90,7 +96,7 @@ public class MainManager : MonoBehaviour
                 if(SceneManager.GetActiveScene().name != "Main")
                 {
                     SceneManager.LoadScene("Main");
-                    OuvertureScene();
+                    OuvertureScene(2);
 
                     partie += 1;
                     SelectionDialogue();
@@ -116,11 +122,43 @@ public class MainManager : MonoBehaviour
                 }
             }
         }
+
+
+        // TRANSITION CHANGEMENT DE PERSONNAGE
+        else if(transitionPerso)
+        {
+            noControl = true;
+            timer += Time.deltaTime;
+
+            if(timer > 3.2f)
+            {
+                if (!stop)
+                {
+                    OuvertureScene(3);
+
+                    stop = true;
+                    partie = 1;
+                    numeroScript += 1;
+
+                    SelectionDialogue();
+                }
+
+                else if(timer > 4f)
+                {
+                    stop = false;
+                    noControl = false;
+                    transitionPerso = false;
+                    timer = 0;
+                }
+            }
+        }
     }
 
 
     public void SelectionDialogue()
     {
+        Debug.Log(12);
+
         // INTRO
         if (numeroScript == 0)
         {
@@ -140,13 +178,13 @@ public class MainManager : MonoBehaviour
 
             else if(partie == 2)
             {
-                FermetureScene();
+                FermetureScene(2);
                 noControl = true;
             } 
 
             else if(partie == 3)
             {
-                FermetureScene();
+                FermetureScene(2);
             }
 
             else
@@ -156,7 +194,7 @@ public class MainManager : MonoBehaviour
         }
 
 
-        // ODIN
+        // MAKE MAKE
         else if (numeroScript == 2)
         {
             if (partie == 1)
@@ -166,13 +204,13 @@ public class MainManager : MonoBehaviour
 
             else if (partie == 2)
             {
-                FermetureScene();
+                FermetureScene(2);
                 noControl = true;
             }
 
             else if (partie == 3)
             {
-                FermetureScene();
+                FermetureScene(2);
             }
 
             else
@@ -180,16 +218,64 @@ public class MainManager : MonoBehaviour
                 dialogue2.AvancerDialogue2();
             }
         }
+
+        else if(numeroScript == 3)
+        {
+            if (partie == 1)
+            {
+                dialogue3.AvancerDialogue1();
+            }
+
+            else if (partie == 2)
+            {
+                FermetureScene(2);
+                noControl = true;
+            }
+
+            else if (partie == 3)
+            {
+                FermetureScene(2);
+            }
+
+            else
+            {
+                dialogue3.AvancerDialogue2();
+            }
+        }
+
+        else if (numeroScript == 4)
+        {
+            if (partie == 1)
+            {
+                dialogue4.AvancerDialogue1();
+            }
+
+            else if (partie == 2)
+            {
+                FermetureScene(2);
+                noControl = true;
+            }
+
+            else if (partie == 3)
+            {
+                FermetureScene(2);
+            }
+
+            else
+            {
+                dialogue4.AvancerDialogue2();
+            }
+        }
     }
 
-    public void OuvertureScene()
+    public void OuvertureScene(float duree)
     {
-        ReferencesUI.Instance.fondu.DOFade(0, 2);
+        ReferencesUI.Instance.fondu.DOFade(0, duree);
     }
 
 
-    public void FermetureScene()
+    public void FermetureScene(float duree)
     {
-        ReferencesUI.Instance.fondu.DOFade(1, 2);
+        ReferencesUI.Instance.fondu.DOFade(1, duree);
     }
 }

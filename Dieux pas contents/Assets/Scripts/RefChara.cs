@@ -11,6 +11,12 @@ public class RefChara : MonoBehaviour
     public GameObject zeusHeureux;
     public GameObject zeusColere;
 
+    public GameObject makeMakeContent;
+    public GameObject makeMakeColere;
+
+    public GameObject intiContent;
+    public GameObject intiColere;
+
     public GameObject odinHeureux;
     public GameObject odinColere;
 
