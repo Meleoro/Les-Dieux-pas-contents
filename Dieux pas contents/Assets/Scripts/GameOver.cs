@@ -68,6 +68,17 @@ public class GameOver : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void PauseTuto()
+    {
+        Time.timeScale = 0;
+        //Use unscaled time for dialogue.
+    }
+
+    public void ResumeTuto()
+    {
+        Time.timeScale = 1;
+    }
 }
 
 

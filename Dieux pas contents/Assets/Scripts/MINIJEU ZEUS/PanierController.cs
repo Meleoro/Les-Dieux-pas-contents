@@ -7,9 +7,10 @@ public class PanierController : MonoBehaviour
 {
     [SerializeField] private Vector3 panierPos;
     [SerializeField] private Vector3 worldPos;
-    public BoxCollider2D Collider;
+    public BoxCollider2D collider;
     public Rigidbody2D rb;
     public SpawnIngredients scoreManager;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -33,8 +34,16 @@ public class PanierController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ingredient"))
         {
-            Destroy(col.gameObject);
-            scoreManager.badScore++;
+            if (col.gameObject.GetComponent<Ingredient>().objectType is >= 1 and < 4)
+            {
+                Destroy(col.gameObject);
+                scoreManager.badScore++;
+            }
+            else
+            {
+                Destroy(col.gameObject);
+                scoreManager.score++;
+            }
         }
     }
 }
