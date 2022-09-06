@@ -18,9 +18,6 @@ public class BreakEggs : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        haut = GameObject.Find("Coquille haute");
-        bas = GameObject.Find("Coquille basse");
-        jaune = GameObject.Find("Jaune d'oeuf");
     }
 
     // Update is called once per frame
