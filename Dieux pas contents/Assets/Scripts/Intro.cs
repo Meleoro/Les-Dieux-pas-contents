@@ -233,7 +233,7 @@ public class Intro : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             ReferencesUI.Instance.dialogue.text += letter;
-            MainManager.Instance.noControl = true;
+           // MainManager.Instance.noControl = true;
 
             yield return new WaitForSeconds(0.03f);
         }
