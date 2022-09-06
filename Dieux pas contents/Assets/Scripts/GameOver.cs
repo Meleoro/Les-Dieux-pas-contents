@@ -11,6 +11,8 @@ public class GameOver : MonoBehaviour
     public TextMeshProUGUI funnyText;
     public int textNumber;
     public bool Lost = false;
+
+    public bool setScreen = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,9 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Lost)
+        if (Lost && !setScreen)
         {
+            setScreen = true;
             LoseGame();
         }
     }
@@ -61,10 +64,10 @@ public class GameOver : MonoBehaviour
         }
     }
 
-    /*void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }*/
+    }
 }
 
 
