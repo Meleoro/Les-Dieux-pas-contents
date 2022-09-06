@@ -33,8 +33,6 @@ public class Grab : MonoBehaviour
         {
             dir = grabPos - grabbedRb.gameObject.transform.position;
             Vector3 NormalizedDir = dir.normalized;
-            Debug.Log("Mouse" + grabPos);
-            Debug.Log("Oeuf" + grabbedRb.position);
             grabbedRb.gravityScale = 0;
             grabbedRb.velocity *= 0.95f;
             grabbedRb.AddForce(NormalizedDir * (forceMultiplier * (Vector2.Distance(grabPos,grabbedRb.gameObject.transform.position))));
@@ -48,10 +46,6 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ingredient"))
-        {
-            Debug.Log("oui!");
-        }
         if (other.gameObject.CompareTag("Ingredient") && Input.GetKey(KeyCode.Mouse0))
         {
             grabbing = true;
