@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class BreakEggs : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class BreakEggs : MonoBehaviour
     [SerializeField] private Rigidbody2D jauneRb;
     [SerializeField] private Rigidbody2D eggRb;
     public OeufManager oeufManager;
+    private Vector3 dir;
+    private Vector3 normDir;
 
     [SerializeField] private Vector3 morceauxPos;
     [SerializeField] private float breakPoint = 100;
+
 
     public float speed;
     // Start is called before the first frame update
@@ -30,13 +34,15 @@ public class BreakEggs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ground") && eggRb.velocity.magnitude > breakPoint)
         {
+            dir = col.gameObject.transform.position - gameObject.transform.position;
+            normDir = dir.normalized;
             haut.SetActive(true);
             InheritVelocity(hautRb);
             bas.SetActive(true);
@@ -45,14 +51,13 @@ public class BreakEggs : MonoBehaviour
             InheritVelocity(jauneRb);
             gameObject.SetActive(false);
             oeufManager.EggRespawn();
+            oeufManager.score++;
         }
     }
 
     void InheritVelocity(Rigidbody2D morceauxDoeuf)
     {
-        morceauxDoeuf.velocity = eggRb.velocity * -1;
-        Vector3 dir = morceauxPos - gameObject.transform.position;
-        Vector3 normDir = dir.normalized;
+
         morceauxDoeuf.AddForce(normDir * eggRb.velocity * speed * -1, ForceMode2D.Impulse);
     }
 
