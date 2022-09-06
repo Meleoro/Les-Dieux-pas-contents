@@ -67,8 +67,6 @@ public class Dialogue1 : MonoBehaviour
 
             RefChara.Instance.zeusHeureux.SetActive(false);
             RefChara.Instance.zeusColere.SetActive(true);
-
-            RefCamera.Instance.CameraShake(3f, 5f);
         }
 
         // Passage à la partie suivante

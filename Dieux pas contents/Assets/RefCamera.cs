@@ -8,6 +8,8 @@ public class RefCamera : MonoBehaviour
     public static RefCamera Instance;
     public Camera camera;
 
+    public bool shaking;
+
 
     private void Awake()
     {
@@ -19,8 +21,19 @@ public class RefCamera : MonoBehaviour
         camera = GetComponent<Camera>();
     }
 
+    private void Update()
+    {
+        /*if(!shaking)
+            transform.position = new Vector3(0, 0, 0);
+
+        else*/
+
+    }
+
     public void CameraShake(float duration, float amplitude)
     {
-        camera.DOShakePosition(duration, amplitude);
+        shaking = true;
+
+        camera.DOShakePosition(duration, amplitude, 5, 90, true);
     }
 }

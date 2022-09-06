@@ -16,6 +16,7 @@ public class MainManager : MonoBehaviour
     public bool noControl;
 
     public float timer;
+    private bool stop;
 
 
     private void Awake()
@@ -94,15 +95,23 @@ public class MainManager : MonoBehaviour
                     SelectionDialogue();
                 }
 
+                if(timer > 2.3f && !stop)
+                {
+                    RefCamera.Instance.CameraShake(3f, 5f);
+                    stop = true;
+                }
+
                 RefChara.Instance.gameObject.SetActive(true);
                 ReferencesUI.Instance.dialogue.gameObject.SetActive(true);
                 ReferencesUI.Instance.nom.gameObject.SetActive(true);
                 ReferencesUI.Instance.fonds.SetActive(true);
 
+
                 if (timer > 3.5f)
                 {
                     noControl = false;
                     timer = 0;
+                    stop = true;
                 }
             }
         }
