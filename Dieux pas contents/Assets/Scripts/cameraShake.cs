@@ -21,6 +21,6 @@ public class cameraShake : MonoBehaviour
     void Update()
     {
         if(SceneManager.GetActiveScene().name == "Main")
-            transf.position = RefCamera.Instance.transform.position * 8 + new Vector3(550, 256.799f, 0);
+            transf.localPosition = RefCamera.Instance.transform.position * 8;
     }
 }
