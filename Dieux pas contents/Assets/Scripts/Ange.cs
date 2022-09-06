@@ -90,9 +90,9 @@ public class Ange : MonoBehaviour
                 volume.weight = Mathf.Lerp(0, 1, Time.deltaTime);
             }
 
-            if(1 < duree2 - timer)
+            else if(1 < duree2 - timer)
             {
-                volume.weight = Mathf.Lerp(0, 1, duree2 - timer);
+                volume.weight = Mathf.Lerp(1, 0, duree2 - timer);
             }
         }
     }

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2593642103172300583}
   - component: {fileID: 1778968116116257208}
-  - component: {fileID: 6037882841294630637}
   - component: {fileID: 2860836441027543522}
   - component: {fileID: 8524426333992316212}
+  - component: {fileID: 6682442565335714904}
   m_Layer: 6
   m_Name: Ingredient
   m_TagString: Ingredient
@@ -56,32 +56,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6037882841294630637
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8405065303045554588}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!212 &2860836441027543522
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122,7 +96,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 5726e99698373194cbb6b121bd9ad541,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,7 +106,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8524426333992316212
@@ -148,10 +122,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 0}
-  objectBien: {fileID: 7482667652216324306, guid: 5726e99698373194cbb6b121bd9ad541,
-    type: 3}
-  objectPasBien: {fileID: -9095717837082945937, guid: e270be0bcf50e6043adb58c692aebf8f,
-    type: 3}
+  pates: {fileID: 21300000, guid: d282ca95c151c1d469cb9ce6196f4425, type: 3}
+  steak: {fileID: 21300000, guid: 0b5f204df455f2c468ebcd333c56a55e, type: 3}
+  tomate: {fileID: 21300000, guid: c68b27e2007cb1b4c85377f5b3a9cf5e, type: 3}
+  sacDePoubelle: {fileID: 21300000, guid: 7f4a8ab4b3a57a143a8110b309ef7f9f, type: 3}
+  arreteDePoisson: {fileID: 21300000, guid: 6bafeea3597fb344aa3dcaafc69ae606, type: 3}
+  sprite: {fileID: 2860836441027543522}
   objectType: 0
   rb: {fileID: 1778968116116257208}
   delay: 0
+--- !u!70 &6682442565335714904
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8405065303045554588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.45, y: 0.75}
+  m_Direction: 1
