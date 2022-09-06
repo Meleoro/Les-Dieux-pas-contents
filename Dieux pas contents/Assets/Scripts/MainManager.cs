@@ -49,6 +49,8 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
+
+        Debug.Log(partie);
         if (!noControl)
         {
             if (Input.GetKeyDown(KeyCode.Space))
