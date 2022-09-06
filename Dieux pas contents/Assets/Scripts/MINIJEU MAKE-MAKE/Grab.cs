@@ -36,8 +36,8 @@ public class Grab : MonoBehaviour
             Debug.Log("Mouse" + grabPos);
             Debug.Log("Oeuf" + grabbedRb.position);
             grabbedRb.gravityScale = 0;
-            grabbedRb.velocity = Vector2.zero;
-            grabbedRb.AddForce(NormalizedDir * (forceMultiplier * (Vector2.Distance(grabPos,grabbedRb.gameObject.transform.position) + 3)));
+            grabbedRb.velocity *= 0.95f;
+            grabbedRb.AddForce(NormalizedDir * (forceMultiplier * (Vector2.Distance(grabPos,grabbedRb.gameObject.transform.position))));
         }
         if (grabbing && Input.GetKeyUp(KeyCode.Mouse0))
         {
