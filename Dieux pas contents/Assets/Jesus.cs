@@ -14,6 +14,14 @@ public class Jesus : MonoBehaviour
 
     public float JesusSpeed;
 
+    [Header("Attaques")]
+    public GameObject bullet;
+    public GameObject bulletSpawner;
+    private float timer;
+
+
+
+
     private void Start()
     {
         currentSeg = 1;
@@ -29,6 +37,19 @@ public class Jesus : MonoBehaviour
             nextSeg = currentSeg + 1;
 
         MouvementsJesus();
+
+
+
+        // ATTAQUES
+        Attaque1();
+
+        timer += Time.deltaTime;
+
+        if(timer > 3)
+        {
+            Attaque2();
+            timer = 0;
+        }
     }
 
     public void MouvementsJesus()
@@ -45,5 +66,28 @@ public class Jesus : MonoBehaviour
             currentSeg = 1;
 
         transform.position = rail.LinearPosition(currentSeg, nextSeg, transition);
+    }
+
+
+    void Attaque1()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            float modif = Random.Range(-2, 2);
+            GameObject oui = Instantiate(bullet, transform.position, Quaternion.EulerAngles(0, 0, 90 + modif));
+
+            Destroy(oui, 5f);
+        }
+    }
+
+    void Attaque2()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            float modif = Random.Range(-2, 2);
+            GameObject oui = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 90 + modif));
+
+            Destroy(oui, 5f);
+        }
     }
 }

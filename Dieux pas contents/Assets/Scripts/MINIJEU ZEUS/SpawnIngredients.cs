@@ -11,6 +11,8 @@ public class SpawnIngredients : MonoBehaviour
 
     public float spawnDelay;
 
+    private bool newScene = false;
+
     [SerializeField] private float maxDelay = 10;
 
     [SerializeField] private float baseDelay = 1;
@@ -18,7 +20,6 @@ public class SpawnIngredients : MonoBehaviour
     [SerializeField] private Rigidbody2D ingredient;
     public int score;
     public int badScore;
-    public MainManager manager;
     public GameOver loseCondition;
 
     [SerializeField] private float startDelay;
@@ -28,7 +29,7 @@ public class SpawnIngredients : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("GameManager").GetComponent<MainManager>();
+        MainManager.Instance = GameObject.Find("GameManager").GetComponent<MainManager>();
         loseCondition = GameObject.Find("MiniManager").GetComponent<GameOver>();
         startDelay = baseDelay;
         score = 0;
@@ -56,9 +57,12 @@ public class SpawnIngredients : MonoBehaviour
             loseCondition.Lost = true;
         }
 
-        if (score == 5)
+        if (score == 5 && !newScene)
         {
-            manager.partie++;
+            newScene = true;
+            MainManager.Instance.partie = 3;
+            MainManager.Instance.SelectionDialogue();
+            Debug.Log(MainManager.Instance.partie);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
