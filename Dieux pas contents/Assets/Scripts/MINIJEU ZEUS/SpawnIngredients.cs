@@ -29,7 +29,7 @@ public class SpawnIngredients : MonoBehaviour
     void Start()
     {
         manager = GameObject.Find("GameManager").GetComponent<MainManager>();
-        loseCondition = GameObject.Find("GameManager").GetComponent<GameOver>();
+        loseCondition = GameObject.Find("MiniManager").GetComponent<GameOver>();
         startDelay = baseDelay;
         score = 0;
     }
