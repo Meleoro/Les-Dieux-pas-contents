@@ -477,8 +477,8 @@ MonoBehaviour:
   eggRb: {fileID: 8991953722046472744}
   oeufManager: {fileID: 0}
   morceauxPos: {x: 0, y: 0, z: 0}
-  breakPoint: 1
-  speed: 35
+  breakPoint: 5
+  speed: 15
 --- !u!58 &4656367750958950352
 CircleCollider2D:
   m_ObjectHideFlags: 0
