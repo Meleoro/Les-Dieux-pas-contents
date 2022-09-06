@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.Rendering;
 
 
 public class Ange : MonoBehaviour
 {
     public static Ange Instance;
+
+    public Volume volume;
 
 
     public Vector3 originalPos;
@@ -77,6 +80,19 @@ public class Ange : MonoBehaviour
                 text.DOFade(0, 2);
 
                 apparition = false;
+            }
+        }
+
+        if (apparition)
+        {
+            if(timer < 1)
+            {
+                volume.weight = Mathf.Lerp(0, 1, Time.deltaTime);
+            }
+
+            if(1 < duree2 - timer)
+            {
+                volume.weight = Mathf.Lerp(0, 1, duree2 - timer);
             }
         }
     }
