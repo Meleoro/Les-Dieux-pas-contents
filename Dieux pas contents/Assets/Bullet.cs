@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour
         if (isShot)
         {
             rb.velocity = transform.up * bulletSpeed;
+
+
         }
     }
 }

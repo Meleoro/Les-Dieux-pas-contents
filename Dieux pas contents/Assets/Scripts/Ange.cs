@@ -26,10 +26,22 @@ public class Ange : MonoBehaviour
 
     private bool stop1;
     private bool stop2;
+    private bool stop3;
+    private bool stop4;
+    private bool stop5;
+    private bool stop6;
 
     private bool apparition;
-    private float duree2;
-    private string message2;
+    private float duree12;
+    private float duree22;
+    private float duree32;
+    private float duree42;
+    private float duree52;
+    private string message12;
+    private string message22;
+    private string message32;
+    private string message42;
+    private string message52;
 
 
     private void Awake()
@@ -65,13 +77,40 @@ public class Ange : MonoBehaviour
                 text.DOFade(1, 2);
             }
 
-            else if (!stop2 && timer > 2 && timer < duree2)
+            else if (!stop2 && timer > 2 && timer < duree12 + duree22 + duree32 + duree42 + duree52)
             {
-                stop2 = true;
-                StartCoroutine(TypeSentence(message2));
+                if(timer < duree12 && !stop2)
+                {
+                    stop2 = true;
+                    StartCoroutine(TypeSentence(message12));
+                }
+
+                else if(timer < duree12 + duree22 && !stop3)
+                {
+                    stop3 = true;
+                    StartCoroutine(TypeSentence(message22));
+                }
+
+                else if(timer < duree12 + duree22 + duree32 && !stop4)
+                {
+                    stop4 = true;
+                    StartCoroutine(TypeSentence(message32));
+                }
+
+                else if (timer < duree12 + duree22 + duree32 + duree42 && !stop5)
+                {
+                    stop5 = true;
+                    StartCoroutine(TypeSentence(message42));
+                }
+
+                else if (timer < duree12 + duree22 + duree32 + duree42 + duree52 && !stop6)
+                {
+                    stop6 = true;
+                    StartCoroutine(TypeSentence(message52));
+                }
             }
 
-            else if (timer > duree2)
+            else if (timer > duree12 + duree22 + duree32 + duree42 + duree52)
             {
                 ange.transform.DOLocalMoveX(720, 2);
 
@@ -82,31 +121,35 @@ public class Ange : MonoBehaviour
                 apparition = false;
             }
         }
-
-        if (apparition)
-        {
-            if(timer < 1)
-            {
-                volume.weight = Mathf.Lerp(0, 1, Time.deltaTime);
-            }
-
-            else if(1 < duree2 - timer)
-            {
-                volume.weight = Mathf.Lerp(1, 0, duree2 - timer);
-            }
-        }
     }
 
 
-    public void AngeApparait(string message, float duree)
+    public void AngeApparait(string message1, float duree1, string message2, float duree2, string message3, float duree3, string message4, float duree4, string message5, float duree5)
     {
         apparition = true;
-        duree2 = duree;
-        message2 = message;
+
+        duree12 = duree1;
+        message12 = message1;
+
+        duree22 = duree2;
+        message22 = message2;
+
+        duree32 = duree3;
+        message32 = message3;
+
+        duree42 = duree4;
+        message42 = message4;
+
+        duree52 = duree5;
+        message52 = message5;
 
         timer = 0;
         stop1 = false;
         stop2 = false;
+        stop3 = false;
+        stop4 = false;
+        stop5 = false;
+        stop6 = false;
     }
 
 
