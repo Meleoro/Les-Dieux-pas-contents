@@ -62,4 +62,32 @@ public class Dialogue2 : MonoBehaviour
             MainManager.Instance.partie = 1;
         }
     }
+
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        ReferencesUI.Instance.dialogue.text = "";
+
+        foreach (char letter in sentence.ToCharArray())
+        {
+            ReferencesUI.Instance.dialogue.text += letter;
+
+            yield return new WaitForSeconds(0.03f);
+        }
+    }
+
+    IEnumerator TypeSentenceLent(string sentence)
+    {
+        ReferencesUI.Instance.dialogue.text = "";
+
+        foreach (char letter in sentence.ToCharArray())
+        {
+            ReferencesUI.Instance.dialogue.text += letter;
+            MainManager.Instance.noControl = true;
+
+            yield return new WaitForSeconds(0.25f);
+        }
+
+        MainManager.Instance.noControl = false;
+    }
 }

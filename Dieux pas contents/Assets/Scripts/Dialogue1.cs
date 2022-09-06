@@ -68,7 +68,7 @@ public class Dialogue1 : MonoBehaviour
             RefChara.Instance.zeusHeureux.SetActive(false);
             RefChara.Instance.zeusColere.SetActive(true);
 
-            RefCamera.Instance.CameraShake(0.5f, 5f);
+            RefCamera.Instance.CameraShake(3f, 5f);
         }
 
         // Passage à la partie suivante
@@ -100,8 +100,11 @@ public class Dialogue1 : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             ReferencesUI.Instance.dialogue.text += letter;
+            MainManager.Instance.noControl = true;
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.25f);
         }
+
+        MainManager.Instance.noControl = false;
     }
 }

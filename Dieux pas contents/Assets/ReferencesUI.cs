@@ -12,11 +12,18 @@ public class ReferencesUI : MonoBehaviour
     public TextMeshProUGUI nom;
 
     public Image fondu;
+    public GameObject fonds;
 
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+
+        else
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(this);
     }
 
     private void Start()

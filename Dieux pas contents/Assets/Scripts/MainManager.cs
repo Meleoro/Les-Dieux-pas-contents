@@ -13,6 +13,10 @@ public class MainManager : MonoBehaviour
     public int numeroScript;
     public int partie;
 
+    public bool noControl;
+
+    public float timer;
+
 
     private void Awake()
     {
@@ -29,12 +33,22 @@ public class MainManager : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+        ReferencesUI.Instance.fondu.DOFade(1, 0);
+
+        OuvertureScene();
+    }
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!noControl)
         {
-            SelectionDialogue();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SelectionDialogue();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.AltGr))
@@ -42,6 +56,55 @@ public class MainManager : MonoBehaviour
             partie += 1;
 
             SelectionDialogue();
+        }
+
+
+        // ENTREE DANS SCENE DE MINI JEU
+        if (partie == 2 && SceneManager.GetActiveScene().name != "Oscar")
+        {
+            timer += Time.deltaTime;
+
+            if(timer > 2.2f)
+            {
+                SceneManager.LoadScene("Oscar");
+                OuvertureScene();
+
+                RefChara.Instance.gameObject.SetActive(false);
+                ReferencesUI.Instance.dialogue.gameObject.SetActive(false);
+                ReferencesUI.Instance.nom.gameObject.SetActive(false);
+                ReferencesUI.Instance.fonds.SetActive(false);
+
+                timer = 0;
+            }
+        }
+
+        // SORTIE DU MINI JEU
+        else if((partie == 3 || partie == 4) && noControl)
+        {
+            timer += Time.deltaTime;
+
+            if (timer > 2.2f)
+            {
+                if(SceneManager.GetActiveScene().name != "Main")
+                {
+                    SceneManager.LoadScene("Main");
+                    OuvertureScene();
+
+                    partie += 1;
+                    SelectionDialogue();
+                }
+
+                RefChara.Instance.gameObject.SetActive(true);
+                ReferencesUI.Instance.dialogue.gameObject.SetActive(true);
+                ReferencesUI.Instance.nom.gameObject.SetActive(true);
+                ReferencesUI.Instance.fonds.SetActive(true);
+
+                if (timer > 3.5f)
+                {
+                    noControl = false;
+                    timer = 0;
+                }
+            }
         }
     }
 
@@ -58,13 +121,13 @@ public class MainManager : MonoBehaviour
 
             else if(partie == 2)
             {
-                SceneManager.LoadScene("Oscar");
+                FermetureScene();
+                noControl = true;
             } 
 
             else if(partie == 3)
             {
-                SceneManager.LoadScene("Main");
-                partie += 1;
+                FermetureScene();
             }
 
             else
@@ -84,13 +147,13 @@ public class MainManager : MonoBehaviour
 
             else if (partie == 2)
             {
-                SceneManager.LoadScene("Oscar");
+                FermetureScene();
+                noControl = true;
             }
 
             else if (partie == 3)
             {
-                SceneManager.LoadScene("Main");
-                partie += 1;
+                FermetureScene();
             }
 
             else
@@ -100,9 +163,14 @@ public class MainManager : MonoBehaviour
         }
     }
 
-
     public void OuvertureScene()
     {
-        ReferencesUI.Instance.fondu.
+        ReferencesUI.Instance.fondu.DOFade(0, 2);
+    }
+
+
+    public void FermetureScene()
+    {
+        ReferencesUI.Instance.fondu.DOFade(1, 2);
     }
 }
