@@ -8,8 +8,12 @@ public class Ingredient : MonoBehaviour
 {
     public SpawnIngredients spawn;
     //[SerializeField] private SpriteRenderer sprite;
-    public Sprite objectBien;
-    public Sprite objectPasBien;
+    public Sprite pates;
+    public Sprite steak;
+    public Sprite tomate;
+    public Sprite sacDePoubelle;
+    public Sprite arreteDePoisson;
+    public SpriteRenderer sprite;
     public int objectType;
 
     public Rigidbody2D rb;
@@ -21,13 +25,25 @@ public class Ingredient : MonoBehaviour
         spawn = GameObject.Find("DESPAWN").GetComponent<SpawnIngredients>();
         rb.gravityScale = 0;
         objectType = Random.Range(1, 6);
-        if (objectType is >= 1 and < 4)
+        if (objectType == 1 )
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = objectBien;
+            sprite.sprite = pates;
         }
-        else if(objectType >= 4)
+        else if(objectType == 2)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = objectPasBien;
+            sprite.sprite = steak;
+        }
+        else if(objectType == 3)
+        {
+            sprite.sprite = tomate;
+        }
+        else if(objectType == 4)
+        {
+            sprite.sprite = sacDePoubelle;
+        }
+        else if(objectType == 5)
+        {
+            sprite.sprite = arreteDePoisson;
         }
         delay = spawn.spawnDelay;
     }

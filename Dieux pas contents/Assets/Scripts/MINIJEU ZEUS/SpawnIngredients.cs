@@ -38,6 +38,7 @@ public class SpawnIngredients : MonoBehaviour
     void Update()
     {
         texte.text = badScore + "/10";
+        text.text = score + "/5";
         if (baseDelay >= 0)
         {
             baseDelay -= Time.deltaTime;
@@ -52,15 +53,12 @@ public class SpawnIngredients : MonoBehaviour
 
         if (badScore == 10)
         {
-            //Gameover
-            Debug.Log("Cessez le tryhard!");
             loseCondition.Lost = true;
         }
 
         if (score == 5)
         {
             manager.partie++;
-            Debug.Log("c'est perdu!");
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -68,8 +66,6 @@ public class SpawnIngredients : MonoBehaviour
         if (other.gameObject.CompareTag("Ingredient"))
         {
             Destroy(other.gameObject);
-            score++;
-            text.text = score + "/5";
         }
     }
     
