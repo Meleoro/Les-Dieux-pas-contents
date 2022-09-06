@@ -124,10 +124,61 @@ public class Dialogue1 : MonoBehaviour
         if (numeroDialogue2 == 1)
         {
             ReferencesUI.Instance.nom.text = "Zeus";
-            StartCoroutine(TypeSentenceLent("Sthana"));
+            StartCoroutine(TypeSentenceLent("Ahh merci garçon, c’est pas trop tôt, j’ai une faim de dieu hahaha."));
+            
+        }
+        
+        if (numeroDialogue2 == 2)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentenceLent("Régale-toi ma chérie…"));
+            
+        }
+        
+        if (numeroDialogue2 == 2)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentenceLent("…"));
+            
+        }
+          
+        if (numeroDialogue2 == 3)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentenceLent("Pfffff !! Qu'est ce que c'est que ça !!??"));
 
             RefChara.Instance.zeusHeureux.SetActive(false);
             RefChara.Instance.zeusColere.SetActive(true);
+        }
+          
+        if (numeroDialogue2 == 4)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentenceLent("J’ai jamais mangé quelque chose d’aussi répugnant !!"));
+        }
+          
+        if (numeroDialogue2 == 5)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentenceLent("Comment ose tu me servir ça à moi, Zeus, le dieu des dieux ?"));
+        }
+          
+        if (numeroDialogue2 == 6)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentenceLent("Je vais te faire regretter d’être venu au monde."));
+        }
+        
+        if (numeroDialogue2 == 7)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentenceLent("Et toi grognace ? Qu’est-ce que t’as à me regarder comme ça ? Tire-toi d’ici et que je te revois plus jamais !!!"));
+        }
+        
+        if (numeroDialogue2 == 8)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentenceLent("Quant à toi…"));
         }
 
         // Passage à la partie suivante
