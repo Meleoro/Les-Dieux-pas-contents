@@ -7,8 +7,6 @@ public class Dialogue2 : MonoBehaviour
     private int numeroDialogue1;
     private int numeroDialogue2;
 
-    public static Dialogue1 Instance;
-
 
     private void Awake()
     {

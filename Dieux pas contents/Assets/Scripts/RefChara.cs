@@ -6,6 +6,8 @@ public class RefChara : MonoBehaviour
 {
     public static RefChara Instance;
 
+    public GameObject nous;
+
     public GameObject zeusHeureux;
     public GameObject zeusColere;
 

@@ -7,6 +7,7 @@ using DG.Tweening;
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
+    public Intro intro;
     public Dialogue1 dialogue1;
     public Dialogue2 dialogue2;
 
@@ -29,7 +30,7 @@ public class MainManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        numeroScript = 1;
+        numeroScript = 0;
         partie = 1;
     }
 
@@ -120,8 +121,17 @@ public class MainManager : MonoBehaviour
 
     public void SelectionDialogue()
     {
+        // INTRO
+        if (numeroScript == 0)
+        {
+            if (partie == 1)
+            {
+                intro.AvancerDialogue1();
+            }
+        }
+
         // ZEUS
-        if (numeroScript == 1)
+        else if (numeroScript == 1)
         {
             if(partie == 1)
             {
