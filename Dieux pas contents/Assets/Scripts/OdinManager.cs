@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class OdinManager : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class OdinManager : MonoBehaviour
     public bool timer;
 
     public GameObject Personnes;
-    public GameObject Parchemin;
+    public GameObject Parchemins;
     public GameObject Bouttons;
+
+    public Vector3 positionPersonnes;
+    public Vector3 positionParchemins;
 
     private void Start()
     {
@@ -23,27 +27,118 @@ public class OdinManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(accepter);
+
+        if (Personne == 1)
+        {
+            if (accepter == true)
+            {
+                GameOver();
+            }
+            if (refuser == true)
+            {
+                positionParchemins = Parchemins.transform.position;
+                Parchemins.transform.DOMoveY(positionParchemins.y - 630, 1);
+                PersonneSuivante();
+            }
+        }
+
+        if (Personne == 2)
+        {
+            if (accepter)
+            {
+                positionParchemins = Parchemins.transform.position;
+                Parchemins.transform.DOMoveY(positionParchemins.y - 630, 1);
+                PersonneSuivante();
+            }
+            if (refuser)
+            {
+                GameOver();
+            }
+
+        }
+
+        if (Personne == 3)
+        {
+            if (accepter == true)
+            {
+                GameOver();
+            }
+            if (refuser == true)
+            {
+                positionParchemins = Parchemins.transform.position;
+                Parchemins.transform.DOMoveY(positionParchemins.y - 630, 1);
+                PersonneSuivante();
+            }
+        }
+
+        if (Personne == 4)
+        {
+            if (accepter)
+            {
+                positionParchemins = Parchemins.transform.position;
+                Parchemins.transform.DOMoveY(positionParchemins.y - 630, 1);
+                PersonneSuivante();
+            }
+            if (refuser)
+            {
+                GameOver();
+            }
+
+        }
+
+        if (Personne == 5)
+        {
+            if (accepter == true)
+            {
+                GameOver();
+            }
+            if (refuser == true)
+            {
+                positionParchemins = Parchemins.transform.position;
+                Parchemins.transform.DOMoveY(positionParchemins.y - 630, 1);
+                PersonneSuivante();
+            }
+        }
+
+        if (Personne == 6)
+        {
+            if (accepter)
+            {
+                GameOver();
+                
+            }
+            if (refuser)
+            {
+                positionParchemins = Parchemins.transform.position;
+                Parchemins.transform.DOMoveY(positionParchemins.y - 630, 1);
+                PersonneSuivante();
+            }
+
+        }
     }
+
 
     public void GameOver()
     {
+        Personne = 0;
         Debug.Log("Mort");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 
     void PersonneSuivante()
     {
-        Bouttons.SetActive(false);
         accepter = false;
         refuser = false;
-        Personne += 1;
-        Personnes.transform.DOMoveX(1089,2);
+        Bouttons.SetActive(false);
+        positionPersonnes = Personnes.transform.position;
+        Personnes.transform.DOMoveX(positionPersonnes.x+1089,2);
         StartCoroutine(WaitChangement());
     }
     IEnumerator WaitChangement()
     {
         yield return new WaitForSeconds(2.5f);
+        Personne += 1;
         DonneParch();
     }
 
@@ -54,44 +149,14 @@ public class OdinManager : MonoBehaviour
 
     public void Refuser()
     {
-        refuser= true;
+        refuser = true;
     }
 
     public void DonneParch()
     {
-        if(Personne == 1)
-        {
-            
-            Parchemin.transform.DOMoveY(-605, 1);
-            Bouttons.SetActive(true);
-            if(accepter == true)
-            {
-                Debug.Log("oui");
-                PersonneSuivante();
-            }
-            if (refuser == true)
-            {
-                GameOver();
-            }
-
-        }
-
-        if (Personne == 2)
-        {
-            Parchemin.transform.DOMoveY(-605, 1);
-            Bouttons.SetActive(true);
-            if (accepter)
-            {
-                GameOver();
-                accepter = false;
-            }
-            if (refuser)
-            {
-                PersonneSuivante();
-                refuser = false;
-            }
-
-        }
+        positionParchemins = Parchemins.transform.position;
+        Parchemins.transform.DOMoveY(positionParchemins.y-630, 1);
+        Bouttons.SetActive(true);
     }
 }
 
