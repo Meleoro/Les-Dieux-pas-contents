@@ -52,13 +52,13 @@ public class OeufManager : MonoBehaviour
             brokenEgg = false;
             EggRespawn();
         }
-        else if (score == 2)
+        else if (score == 2 && !canSpawnEgg && brokenEgg)
         {
             canSpawnEgg = true;
             brokenEgg = false;
             EggRespawn();
         }
-        else if (score == 3)
+        else if (score == 3 && !canSpawnEgg && brokenEgg)
         {
             StartCoroutine(AngeDialogue(28));
             panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(3, 2, 1),1*Time.unscaledDeltaTime);
@@ -69,35 +69,35 @@ public class OeufManager : MonoBehaviour
                 "Permettez moi d'élargir le panier pour vous faciliter la tâche!",3,0,
                 "",0,0);
         }
-        else if (score == 4)
+        else if (score == 4 && !canSpawnEgg && brokenEgg)
         {
             canSpawnEgg = true;
             brokenEgg = false;
             EggRespawn();
         }
-        else if (score == 5)
+        else if (score == 5 && !canSpawnEgg && brokenEgg)
         {
             canSpawnEgg = true;
             brokenEgg = false;
             EggRespawn();
         }
-        else if (score == 6)
+        else if (score == 6 && !canSpawnEgg && brokenEgg)
         {
             panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(5, 2, 1),1*Time.unscaledDeltaTime);
         }
-        else if (score == 7)
+        else if (score == 7 && !canSpawnEgg && brokenEgg)
         {
             canSpawnEgg = true;
             brokenEgg = false;
             EggRespawn();
         }
-        else if (score == 8)
+        else if (score == 8 && !canSpawnEgg && brokenEgg)
         {
             canSpawnEgg = true;
             brokenEgg = false;
             EggRespawn();
         }
-        else if (score == 9)
+        else if (score == 9 && !canSpawnEgg && brokenEgg)
         {
             panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(11, 3, 1),1*Time.unscaledDeltaTime);
             panier.position = Vector3.MoveTowards(panier.position,new Vector3(panier.position.x, -1, 0),0.2f*Time.unscaledDeltaTime);
