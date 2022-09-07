@@ -77,40 +77,40 @@ public class Ange : MonoBehaviour
                 text.DOFade(1, 2);
             }
 
-            else if (!stop2 && timer > 2 && timer < duree12 + duree22 + duree32 + duree42 + duree52)
+            else if (timer > 2 && timer < duree12 + duree22 + duree32 + duree42 + duree52 + 2)
             {
-                if(timer < duree12 && !stop2)
+                if(timer < duree12 + 2 && !stop2)
                 {
                     stop2 = true;
                     StartCoroutine(TypeSentence(message12));
                 }
 
-                else if(timer > duree12 && !stop3)
+                else if(timer > duree12 + 2 && !stop3)
                 {
                     stop3 = true;
                     StartCoroutine(TypeSentence(message22));
                 }
 
-                else if(timer > duree12 + duree22 && !stop4)
+                else if(timer > duree12 + duree22 + 2 && !stop4)
                 {
                     stop4 = true;
                     StartCoroutine(TypeSentence(message32));
                 }
 
-                else if (timer > duree12 + duree22 + duree32 && !stop5)
+                else if (timer > duree12 + duree22 + duree32 + 2 && !stop5)
                 {
                     stop5 = true;
                     StartCoroutine(TypeSentence(message42));
                 }
 
-                else if (timer > duree12 + duree22 + duree32 + duree42 && !stop6)
+                else if (timer > duree12 + duree22 + duree32 + duree42 + 2 && !stop6)
                 {
                     stop6 = true;
                     StartCoroutine(TypeSentence(message52));
                 }
             }
 
-            else if (timer > duree12 + duree22 + duree32 + duree42 + duree52)
+            else if (timer > duree12 + duree22 + duree32 + duree42 + duree52 + 2)
             {
                 ange.transform.DOLocalMoveX(720, 2);
 
