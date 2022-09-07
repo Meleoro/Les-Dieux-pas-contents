@@ -270,7 +270,7 @@ public class Dialogue3 : MonoBehaviour
             StartCoroutine(TypeSentence("Déguerpissez minable !"));
 
             RefChara.Instance.intiContent.SetActive(false);
-            RefChara.Instance.intiColere.SetActive(true);
+            RefChara.Instance.intiColere.SetActive(false);
         }
 
         else if(numeroDialogue2 == 9)

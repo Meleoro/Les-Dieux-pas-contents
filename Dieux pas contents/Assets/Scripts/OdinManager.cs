@@ -143,6 +143,7 @@ public class OdinManager : MonoBehaviour
 
         if (Personne == 7 && stop == false)
         {
+            Bouttons.SetActive(false);
             stop = true;
             MainManager.Instance.partie++;
             MainManager.Instance.SelectionDialogue();
