@@ -17,7 +17,7 @@ public class Ange : MonoBehaviour
     public Vector3 originalPos;
     public Vector3 newPos;
 
-    private float timer;
+    public float timer;
 
     public Image ange;
     public Image boiteDialogue1;
@@ -31,7 +31,7 @@ public class Ange : MonoBehaviour
     private bool stop5;
     private bool stop6;
 
-    private bool apparition;
+    public bool apparition;
     private float duree12;
     private float duree22;
     private float duree32;
@@ -52,14 +52,17 @@ public class Ange : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+
+        else
+            Destroy(gameObject);
     }
 
 
     private void Start()
     {
         boiteDialogue1.DOFade(0, 0);
-        boiteDialogue2.DOFade(0, 0);
 
         text.DOFade(0, 0);
 
@@ -79,7 +82,6 @@ public class Ange : MonoBehaviour
                 ange.transform.DOLocalMoveX(500, 2);
 
                 boiteDialogue1.DOFade(1, 2);
-                boiteDialogue2.DOFade(1, 2);
                 text.DOFade(1, 2);
             }
 
@@ -131,10 +133,10 @@ public class Ange : MonoBehaviour
                 ange.transform.DOLocalMoveX(720, 2);
 
                 boiteDialogue1.DOFade(0, 2);
-                boiteDialogue2.DOFade(0, 2);
                 text.DOFade(0, 2);
 
                 apparition = false;
+                timer = 0;
             }
         }
     }
@@ -143,7 +145,15 @@ public class Ange : MonoBehaviour
     public void AngeApparait(string message1, float duree1, float shake1, string message2, float duree2, float shake2, string message3, float duree3, float shake3, string message4, float duree4, float shake4, 
         string message5, float duree5, float shake5)
     {
+        boiteDialogue1.DOFade(0, 0);
+
+        text.DOFade(0, 0);
+
+        ange.transform.DOLocalMoveX(720, 0);
+
         apparition = true;
+
+        Debug.Log(12);
 
         text.text = "";
 
