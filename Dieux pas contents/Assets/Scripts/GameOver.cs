@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    public static GameOver Instance;
+
+
     public GameObject gameOverScreen;
     public GameObject gameUI;
     public TextMeshProUGUI funnyText;
@@ -13,27 +16,27 @@ public class GameOver : MonoBehaviour
     public bool Lost = false;
 
     public bool setScreen = false;
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
-        if (Lost && !setScreen)
-        {
-            setScreen = true;
-            LoseGame();
-        }
+        gameOverScreen.SetActive(false);
     }
 
-    void LoseGame()
+
+    public void LoseGame()
     {
         textNumber = Random.Range(0, 7);
         gameOverScreen.SetActive(true);
-        gameUI.SetActive(false);
+        //gameUI.SetActive(false);
+
+        Debug.Log(textNumber);
+
         if (textNumber == 0)
         {
             funnyText.text = "Vous ferez moins bien la prochaine fois!";

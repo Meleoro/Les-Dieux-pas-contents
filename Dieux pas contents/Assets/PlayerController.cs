@@ -93,9 +93,11 @@ public class PlayerController : MonoBehaviour
 
 
         // MORT
-        if (currentHealth < 0)
+        if (currentHealth < 0 && !isDead)
         {
             isDead = true;
+
+            GameOver.Instance.LoseGame();
         }
     }
 
