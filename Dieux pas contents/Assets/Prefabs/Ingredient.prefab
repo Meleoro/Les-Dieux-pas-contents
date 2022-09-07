@@ -131,7 +131,7 @@ MonoBehaviour:
   objectType: 0
   rb: {fileID: 1778968116116257208}
   casserole: {fileID: 0}
-  multiplier: 24
+  multiplier: 20
   delay: 0
 --- !u!70 &6682442565335714904
 CapsuleCollider2D:
