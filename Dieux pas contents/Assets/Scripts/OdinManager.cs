@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class OdinManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class OdinManager : MonoBehaviour
     public bool accepter;
     public bool refuser;
     public bool timer;
+
+    public TextMeshProUGUI funnyText;
+    public int textNumber;
+    public GameObject gameOverScreen;
 
     public GameObject Personnes;
     public GameObject Parchemins;
@@ -122,9 +127,43 @@ public class OdinManager : MonoBehaviour
     {
         Personne = 0;
         Debug.Log("Mort");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        textNumber = Random.Range(0, 7);
+            gameOverScreen.SetActive(true);
+            if (textNumber == 0)
+            {
+                funnyText.text = "Vous ferez moins bien la prochaine fois!";
+            }
+            else if (textNumber == 1)
+            {
+                funnyText.text = "Essayez moins fort!";
+            }
+            else if (textNumber == 2)
+            {
+                funnyText.text = "Ne vous donnez pas à 100%!";
+            }
+            else if (textNumber == 3)
+            {
+                funnyText.text = "Essayez de ne pas essayer!";
+            }
+            else if (textNumber == 4)
+            {
+                funnyText.text = "Arrêtez d'être aussi bon!";
+            }
+            else if (textNumber == 5)
+            {
+                funnyText.text = "Ne vous dépassez surtout pas!";
+            }
+            else if (textNumber == 6)
+            {
+                funnyText.text = "Cessez le tryhard!";
+            }
+       
     }
 
+    public void Retart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     void PersonneSuivante()
     {
