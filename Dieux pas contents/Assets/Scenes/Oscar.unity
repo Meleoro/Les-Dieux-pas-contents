@@ -1637,7 +1637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panierPos: {x: 0, y: 0, z: 0}
   worldPos: {x: 0, y: 0, z: 0}
-  collider: {fileID: 0}
+  collider: {fileID: 1799874486}
   rb: {fileID: 1799874487}
   scoreManager: {fileID: 321943030}
 --- !u!212 &1799874484
@@ -2146,21 +2146,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ingredient
       objectReference: {fileID: 0}
-    - target: {fileID: 8405065303045554588, guid: 2c9b549735772a147abaac28dafa144c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405065303045554588, guid: 2c9b549735772a147abaac28dafa144c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Ingredient
-      objectReference: {fileID: 0}
-    - target: {fileID: 8524426333992316212, guid: 2c9b549735772a147abaac28dafa144c,
-        type: 3}
-      propertyPath: objectBien
-      value: 
-      objectReference: {fileID: -9095717837082945937, guid: e270be0bcf50e6043adb58c692aebf8f,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c9b549735772a147abaac28dafa144c, type: 3}
