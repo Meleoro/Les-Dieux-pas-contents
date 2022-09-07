@@ -38,11 +38,11 @@ public class SpawnIngredients : MonoBehaviour
         score = 0;
         canDelay = false;
         StartCoroutine(StartAnge(27));
-        Ange.Instance.AngeApparait("OK nous y voila!", 2,0,
-            "Pour ta première mission, tu devras préparer à manger !", 4,0,
-            "Pour cela rien de plus simple ! Il te suffit de récuperer les bons ingrédients dans à l'aide de ta casserole.",6,0,
-            "Pour bouger la casserole il te faut simplement bouger la souris de gauche à droite. Tu devras récuper les ingrédients comme des pates, des steaks ou bien des tomates.",8,0,
-            "Mais SURTOUT PAS des sacs poubelle ou des arrête de poisson. Sur ceux bonne chance élu de la prophétie!", 6,0);
+        Ange.Instance.AngeApparait("OK nous y voilà!", 2,0,
+            "Pour ta première mission, tu devras préparer à manger!", 4,0,
+            "Pour cela rien de plus simple ! Il te suffit de récuperer les bons ingrédients à l'aide de ta casserole.",6,0,
+            "Pour bouger la casserole il te faut simplement bouger la souris de gauche à droite. Tu devras récuperer des ingrédients comme des pates, des steaks ou bien des tomates.",8,0,
+            "Mais SURTOUT PAS des sacs poubelles ou des arrêtes de poisson. Sur ceux, bonne chance élu de la prophétie!", 6,0);
         
     }
 
@@ -75,10 +75,10 @@ public class SpawnIngredients : MonoBehaviour
             StartCoroutine(StartAnge(22));
             GameObject.Find("Ange").GetComponent<Animator>().SetBool("OHNO",true);
             Ange.Instance.AngeApparait("Um, élu de la phophétie?", 5, 0,
-                "Vous semblez avoir amassé une quantitée non négligeable de déchets dans votre casserole", 5,0,
-                "N'oubliez pas, les bons ingrédients sont: les pates, les steaks et les tomates", 5,0,
-                "TANDIS... que les mauvais ingrédients (qu'il ne faut pas prendre) sont: les sacs poubelle et les arrêtes de poisson", 5,0.3f,
-                "Tenez je me suis permis de faire en sorte que la casserole repousse les mauvais ingrédients, bonne chance!",5,0);
+                "Vous semblez avoir amassé une quantitée non négligeable de déchets dans votre casserole.", 5,0,
+                "N'oubliez pas, les bons ingrédients sont: les pates, les steaks et les tomates.", 5,0,
+                "TANDIS... que les mauvais ingrédients (qu'il ne faut pas prendre) sont: les sacs poubelles et les arrêtes de poisson.", 5,0.3f,
+                "Tenez, je me suis permis de faire en sorte que la casserole repousse les mauvais ingrédients, bonne chance!",5,0);
         }
 
 

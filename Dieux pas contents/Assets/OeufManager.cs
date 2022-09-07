@@ -42,8 +42,8 @@ public class OeufManager : MonoBehaviour
         size = Panier.small;
         StartCoroutine(AngeDialogue(28));
         Ange.Instance.AngeApparait("Bon, ok je comprends que ca peut être déroutant d'être élu de la prophétie et sauver le monde. Les responsabilitées, le stress...",6,0,
-            "Bref, oublions ce qui c'est passé avec Zeus et concentrons nous sur la nouvelle tâche a accomplir.",5,0,
-            "La mission est simple, il faut mettre les oeufs dans le panier, pour se faire il faut cliquer et maintenir enfoncé le bouton gauche de la souris, puis relacher au dessus du panier",7,0,
+            "Bref, oublions ce qui c'est passé avec Zeus et concentrons nous sur la nouvelle tâche à accomplir.",5,0,
+            "La mission est simple, il faut mettre les oeufs dans le panier, pour se faire, il faut cliquer et maintenir enfoncé le bouton gauche de la souris, puis relâcher au dessus du panier.",7,0,
             "CEEEPEENDAAAAAANT!",2,1,
             "Manipulez les oeufs avec êxtreme attention, car les jeter trop fort au sol va certainement les casser. Bonne chance élu de la prophétie, je crois en vous!",6,0);
     }
@@ -73,9 +73,9 @@ public class OeufManager : MonoBehaviour
             brokenEgg = false;
             text.text = score + "/10";
             StartCoroutine(AngeDialogue2(24));
-            Ange.Instance.AngeApparait("Ah attention élu de la prophétie! Les oeufs semblent pas atteindre leur objectif!",5,0.3f,
-                "Prennez tout votre temps heros, n'oubliez pas que tant que vous ne relachez pas le clic gauche de la souris, l'oeuf suivra toujours la souris.",7,0,
-                "Efforcez-vous de ne pas faire de gestes brusques et relachez le clic gauche uniquement quand l'oeuf est bien au dessus du panier",6,0,
+            Ange.Instance.AngeApparait("Ah, attention élu de la prophétie! Les oeufs ne semblent pas atteindre leur objectif!",5,0.3f,
+                "Prennez tout votre temps héros, n'oubliez pas que tant que vous ne relâchez pas le clic gauche de la souris, l'oeuf suivra toujours la souris.",7,0,
+                "Efforcez-vous de ne pas faire de gestes brusques et relachez le clic gauche uniquement quand l'oeuf est bien au dessus du panier.",6,0,
                 "Permettez moi d'élargir le panier pour vous faciliter la tâche!",3,0,
                 "",0,0);
         }
@@ -127,10 +127,10 @@ public class OeufManager : MonoBehaviour
             text.text = score + "/10";
             StartCoroutine(AngeDialogue4(16));
             Ange.Instance.AngeApparait("Mais...",3,0,
-                "MAIS CESSEZ DONC",3,0.8f,
-                "ARRETEZ DE JOUER",4,0.8f,
-                "LES OEUFS DANS LE PANIER JE VOUS PRIE",3,0f,
-                "LE DESTIN DU MONDE ENTIER EN DEPEND",3,2);
+                "MAIS CESSEZ DONC!",3,0.8f,
+                "ARRETEZ DE JOUER!",4,0.8f,
+                "LES OEUFS DANS LE PANIER JE VOUS PRIE!",3,0f,
+                "LE DESTIN DU MONDE ENTIER EN DEPEND!",3,2);
         }
         else if (score == 10 && !newScene)
         {
