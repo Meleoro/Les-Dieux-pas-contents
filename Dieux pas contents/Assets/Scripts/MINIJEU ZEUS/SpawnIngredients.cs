@@ -65,7 +65,7 @@ public class SpawnIngredients : MonoBehaviour
 
         if (badScore == 10)
         {
-            loseCondition.Lost = true;
+            GameOver.Instance.LoseGame(); 
         }
 
         if (score == 2 && !ange2)
