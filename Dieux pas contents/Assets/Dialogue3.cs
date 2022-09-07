@@ -215,7 +215,7 @@ public class Dialogue3 : MonoBehaviour
 
             RefBackgrounds.Instance.valhalla.SetActive(true);
         }
-
+        
         if (numeroDialogue2 == 2)
         {
             ReferencesUI.Instance.nom.text = "Odin";

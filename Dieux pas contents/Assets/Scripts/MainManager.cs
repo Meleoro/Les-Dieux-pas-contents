@@ -75,8 +75,13 @@ public class MainManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.Z))
         {
-            partie = 1;
-            numeroScript = 2;
+            FermetureScene(3);
+
+            partie += 1;
+
+            transitionPerso = true;
+
+            numeroScript = 1;
 
             SelectionDialogue();
         }
