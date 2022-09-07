@@ -62,7 +62,7 @@ public class Ingredient : MonoBehaviour
         {
             Vector3 dir = new Vector3(transform.position.x - casserole.position.x,0,0);
             Vector3 normDir = dir.normalized;
-            rb.AddForce(normDir * multiplier* (1f/Vector2.Distance(transform.position,casserole.position)));
+            rb.AddForce(normDir * (multiplier * (1f/Vector2.Distance(transform.position,casserole.position))));
         }
         if(delay >= 0)
         {
