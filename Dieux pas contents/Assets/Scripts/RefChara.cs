@@ -19,7 +19,10 @@ public class RefChara : MonoBehaviour
 
     public GameObject odinHeureux;
     public GameObject odinColere;
-    
+
+    public GameObject jesus;
+    public GameObject darkJesus;
+
     public GameObject ange;
     
     public GameObject Satan;
