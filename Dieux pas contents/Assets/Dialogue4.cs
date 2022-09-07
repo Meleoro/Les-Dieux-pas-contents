@@ -53,7 +53,7 @@ public class Dialogue4 : MonoBehaviour
         else if(numeroDialogue1 == 3)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentence("La vieillesse l’as assagi visiblement. Oh et comment ils sont ces taxis célestes ? J’ai toujours voulu les essayer ^^.Eh ben, bon travail, étonnamment, Odin est le seul qui ne t’ai pas fichu une rouste :0 ! "));
+            StartCoroutine(TypeSentence("La vieillesse l’as assagi visiblement. Oh et comment ils sont ces taxis célestes ? J’ai toujours voulu les essayer ^^."));
 
         }
 
@@ -347,7 +347,7 @@ public class Dialogue4 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("C’est bon on l'a fait, on a gagné !!! Bon travail /o/"));
-            RefChara.Instance.Satan.GetComponent<Image>().DOFade(0, 0.3f);
+            RefChara.Instance.Satan.GetComponent<Image>().DOFade(1, 0.3f);
             RefChara.Instance.Satan.SetActive(true);
         }
 

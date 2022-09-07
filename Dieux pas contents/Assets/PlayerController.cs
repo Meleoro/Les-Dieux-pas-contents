@@ -37,11 +37,11 @@ public class PlayerController : MonoBehaviour
 
         offset = transform.position - worldPos;
 
-        Ange.Instance.AngeApparait("Oui", 2, 0.2f, 
-            "Non", 1, 0.2f,
-            "Oui", 2, 0.2f,
-            "Non", 1, 0,
-            "AHAH", 3, 0);
+        Ange.Instance.AngeApparait("Je le savais depuis le début !!! Tu n'es pas l’élu, tu es un imposteur !!", 5f, 0.5f,
+            "Mon maître va t’apprendre comment on punit les imposteurs au paradis !", 3.9f, 0,
+            "Cette fois tu n’as personne pour t’aider ! S’en est fini de toi !", 3.5f, 0,
+            "Heureusement que tu ne sais pas qu'il faut utiliser la souris pour se déplacer et le clique gauche pour tirer.", 8f, 0,
+            "Adieu, satanerie !", 3, 0.5f);
     }
 
     
