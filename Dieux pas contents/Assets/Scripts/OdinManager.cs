@@ -37,12 +37,14 @@ public class OdinManager : MonoBehaviour
 
     private void Start()
     {
-        //RefBackgrounds.Instance.valhalla.SetActive(false);
+        RefBackgrounds.Instance.valhalla.SetActive(false);
         StartCoroutine(WaitAnge());
         Bouttons.SetActive(false);
-        Ange2.Instance.AngeApparait("ELU !!!Vous le faites exprès ? Comment un élu de la prophécie peut-t-il être si incompétent !!", 3, 1, "Bref, ce n'est rien, vous pouvez encore vous ratrapez haha...", 2, 0,
-            "Il est temps de trier des âmes. Naturellement, je ne vous apprend rien en disant que seuls les grands guerriers de ce monde peuvent accéder au Valhalla.", 3, 0, 
-            "Et pas les minables, morts de façon indigne. (je ne vous ai rien appris…n’est ce pas… ?)", 3, 0, "Aller courage elu, je crois en vous (je vais le tuer....)", 2, 0);
+        Ange.Instance.AngeApparait("ELU !!!Vous le faites exprès ? Comment un élu de la prophécie peut-t-il être si incompétent !!",5, 1, 
+            "Bref, ce n'est rien, vous pouvez encore vous ratrapez haha...", 3.5f, 0,
+            "Il est temps de trier des âmes. Naturellement, je ne vous apprend rien en disant que seuls les grands guerriers de ce monde peuvent accéder au Valhalla.", 7, 0,
+            "Et pas les minables, morts de façon indigne. (je ne vous ai rien appris…n’est ce pas… ?)", 4.3f, 0,
+            "Le bouton rouge rejete les âmes àlors que le vert les accepte au Valhalla. Aller courage elu, je crois en vous (je vais le tuer....)", 6.3f, 0);
     }
 
     IEnumerator WaitAnge()
