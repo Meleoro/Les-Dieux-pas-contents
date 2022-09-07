@@ -27,12 +27,12 @@ public class Dialogue4 : MonoBehaviour
 
         if (numeroDialogue1 == 1)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Jesuus";
             StartCoroutine(TypeSentence("Je suis beau ?!"));
 
+            RefBackgrounds.Instance.valhalla.SetActive(false);
 
-            RefChara.Instance.odinHeureux.SetActive(true);
-
+            RefChara.Instance.odinColere.SetActive(false);
             RefChara.Instance.intiColere.SetActive(false);
         }
 
@@ -100,6 +100,6 @@ public class Dialogue4 : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
 
-        MainManager.Instance.noControl = false;
+       // MainManager.Instance.noControl = false;
     }
 }
