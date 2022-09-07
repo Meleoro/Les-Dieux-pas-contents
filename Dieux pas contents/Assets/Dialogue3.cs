@@ -209,6 +209,12 @@ public class Dialogue3 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentence("Qu…Qu'est ce que ça veut dire ?"));
+            RefChara.Instance.odinHeureux.GetComponent<Image>().DOFade(0, 0.3f);
+            RefChara.Instance.odinHeureux.SetActive(false);
+
+            RefChara.Instance.odinColere.GetComponent<Image>().DOFade(0, 0);
+            RefChara.Instance.odinColere.SetActive(true);
+            RefChara.Instance.odinColere.GetComponent<Image>().DOFade(1, 0.3f);
 
             RefChara.Instance.intiContent.SetActive(false);
             RefChara.Instance.intiColere.SetActive(false);
@@ -248,9 +254,6 @@ public class Dialogue3 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentence("Je vais vous renvoyer directement vers votre employeur. Plus jamais je n'embaucherai des douaniers du paradis (et j’irais toucher deux mots à ce Jésus Christ)."));
-
-            RefChara.Instance.intiContent.SetActive(false);
-            RefChara.Instance.intiColere.SetActive(true);
         }
 
         else if(numeroDialogue2 == 7)
@@ -259,7 +262,6 @@ public class Dialogue3 : MonoBehaviour
             StartCoroutine(TypeSentence("Je vais vous renvoyer directement vers votre employeur. Plus jamais je n'embaucherai des douaniers du paradis (et j’irais toucher deux mots à ce Jésus Christ)."));
 
             RefChara.Instance.intiContent.SetActive(false);
-            RefChara.Instance.intiColere.SetActive(true);
         }
 
         else if(numeroDialogue2 == 8)
@@ -277,10 +279,10 @@ public class Dialogue3 : MonoBehaviour
             StartCoroutine(TypeSentence("O, vous voulez peut-être que je vous appelle un taxi ? Bien sur je peux faire ça, aucun soucis. Bonne journée à vous !"));
 
             RefChara.Instance.odinColere.GetComponent<Image>().DOFade(0, 0.3f);
-            RefChara.Instance.intiContent.SetActive(false);
-            RefChara.Instance.odinColere.GetComponent<Image>().DOFade(0, 0);
-            RefChara.Instance.intiColere.SetActive(true);
-            RefChara.Instance.odinColere.GetComponent<Image>().DOFade(1, 0.3f);
+            RefChara.Instance.odinColere.SetActive(false);
+            RefChara.Instance.odinHeureux.GetComponent<Image>().DOFade(0, 0);
+            RefChara.Instance.odinHeureux.SetActive(true);
+            RefChara.Instance.odinHeureux.GetComponent<Image>().DOFade(1, 0.3f);
         }
 
         // Passage à la partie suivante

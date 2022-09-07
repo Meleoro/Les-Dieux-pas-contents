@@ -36,16 +36,18 @@ public class Dialogue4 : MonoBehaviour
             RefBackgrounds.Instance.ciel.SetActive(true);
 
             RefChara.Instance.odinColere.SetActive(false);
+            RefChara.Instance.odinHeureux.SetActive(false);
             RefChara.Instance.intiColere.SetActive(false);
+            RefChara.Instance.intiContent.SetActive(false);
         }
 
         else if (numeroDialogue1 == 2)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("Eh ben, bon travail, étonnamment, Odin est le seul qui ne t’ai pas fichu une rouste :0 ! "));
-            RefChara.Instance.zeusColere.GetComponent<Image>().DOFade(0, 0);
+            RefChara.Instance.Satan.GetComponent<Image>().DOFade(0, 0);
             RefChara.Instance.Satan.SetActive(true);
-            RefChara.Instance.zeusColere.GetComponent<Image>().DOFade(1, 0.3f);
+            RefChara.Instance.Satan.GetComponent<Image>().DOFade(1, 0.3f);
         }
 
         else if(numeroDialogue1 == 3)
@@ -79,7 +81,7 @@ public class Dialogue4 : MonoBehaviour
         else if(numeroDialogue1 == 7)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentenceLent("Jésus Christ lui-même."));
+            StartCoroutine(TypeSentence("Jésus Christ lui-même."));
 
         }
 
@@ -92,31 +94,31 @@ public class Dialogue4 : MonoBehaviour
 
         else if (numeroDialogue1 == 9)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("Tu devras l’affronter en face à face et le mettre KO."));
         }
 
         else if (numeroDialogue1 == 10)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("Je suis sûr que tu en es capable, c'est ton moment ùwù !"));
         }
 
         else if (numeroDialogue1 == 11)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("N’oublie pas que je suis toujours à tes côtés <3."));
         }
 
         else if (numeroDialogue1 == 12)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("(J’ai toujours rêvé de dire ça à quelqu’un ^^)"));
         }
 
         else if (numeroDialogue1 == 12)
         {
-            ReferencesUI.Instance.nom.text = "Odin";
+            ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("Bonne chance o/ !"));
         }
 
@@ -124,9 +126,9 @@ public class Dialogue4 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Elu";
             StartCoroutine(TypeSentence("J’aurais dû me douter que concubiner avec satan m'amènerait à combattre jésus. "));
-            RefChara.Instance.zeusColere.GetComponent<Image>().DOFade(0, 0.3f);
+            RefChara.Instance.Satan.GetComponent<Image>().DOFade(0, 0.3f);
             RefChara.Instance.Satan.SetActive(false);
-            RefChara.Instance.zeusColere.GetComponent<Image>().DOFade(0, 0);
+            RefChara.Instance.nous.GetComponent<Image>().DOFade(0, 0);
             RefChara.Instance.nous.SetActive(true);
             RefChara.Instance.nous.GetComponent<Image>().DOFade(1, 0.3f);
         }
