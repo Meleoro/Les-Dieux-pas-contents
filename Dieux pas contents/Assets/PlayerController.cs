@@ -31,9 +31,9 @@ public class PlayerController : MonoBehaviour
 
         offset = transform.position - worldPos;
 
-        Ange.Instance.AngeApparait("Oui", 2, 0, 
-            "Non", 1, 0,
-            "Oui", 2, 0,
+        Ange.Instance.AngeApparait("Oui", 2, 100, 
+            "Non", 1, 100,
+            "Oui", 2, 1,
             "Non", 1, 0,
             "AHAH", 3, 0);
     }

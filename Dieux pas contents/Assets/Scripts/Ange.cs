@@ -76,7 +76,7 @@ public class Ange : MonoBehaviour
             if (!stop1)
             {
                 stop1 = true;
-                ange.transform.DOLocalMoveX(550, 2);
+                ange.transform.DOLocalMoveX(500, 2);
 
                 boiteDialogue1.DOFade(1, 2);
                 boiteDialogue2.DOFade(1, 2);
@@ -98,7 +98,7 @@ public class Ange : MonoBehaviour
                     stop3 = true;
                     StartCoroutine(TypeSentence(message22));
 
-                    transform.DOShakePosition(duree22 / 2f, shake22);
+                    transform.DOShakePosition(1, shake22);
                 }
 
                 else if(timer > duree12 + duree22 + 2 && !stop4)
@@ -144,6 +144,8 @@ public class Ange : MonoBehaviour
         string message5, float duree5, float shake5)
     {
         apparition = true;
+
+        text.text = "";
 
         duree12 = duree1;
         message12 = message1;

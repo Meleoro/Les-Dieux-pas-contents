@@ -108,6 +108,7 @@ public class Jesus : MonoBehaviour
                 JesusSpeed = 3.5f;
 
                 timer3 = 10;
+                timerPhase2 = 0;
                 rb.velocity = Vector2.zero;
 
                 stop2 = true;
@@ -170,7 +171,7 @@ public class Jesus : MonoBehaviour
             }
 
             timer3 += Time.deltaTime;
-            if (timer3 > 7 || (timer3 > cooldownPhase2 - 0.5f && phase2))
+            if (timer3 > 7 || (timer3 > cooldownPhase2 && phase2))
             {
                 Attaque3();
                 timer3 = 0;
