@@ -19,11 +19,19 @@ public class OeufManager : MonoBehaviour
     [SerializeField] private int badScore;
     public GameOver loseCondition;
     private bool newScene;
+    [SerializeField] private GameObject ange;
     
     // Start is called before the first frame update
     void Start()
     {
         MainManager.Instance = GameObject.Find("GameManager").GetComponent<MainManager>();
+        ange = GameObject.Find("Ange");
+        StartCoroutine(AngeDialogue(28));
+        Ange.Instance.AngeApparait("Bon, ok je comprends que ca peut être déroutant d'être élu de la prophétie et sauver le monde. Les responsabilitées, le stress...",6,0,
+            "Bref, oublions ce qui c'est passé avec Zeus et concentrons nous sur la nouvelle tâche a accomplir.",5,0,
+            "La mission est simple, il faut mettre les oeufs dans le panier, pour se faire il faut cliquer et maintenir enfoncé le bouton gauche de la souris, puis relacher au dessus du panier",7,0,
+            "CEEEPEENDAAAAAANT!",2,1,
+            "Manipulez les oeufs avec êxtreme attention, car les jeter trop fort au sol va certainement les casser. Bonne chance élu de la prophétie, je crois en vous!",6,0);
     }
 
     // Update is called once per frame
@@ -73,5 +81,11 @@ public class OeufManager : MonoBehaviour
     {
         Instantiate(oeufObject, new Vector3(Random.Range(2f,9f),oeufRespawn.y,oeufRespawn.z), transform.rotation);
         
+    }
+
+    public IEnumerator AngeDialogue(float time)
+    {
+        yield return new WaitForSeconds(time);
+        EggRespawn();
     }
 }
