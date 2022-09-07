@@ -81,7 +81,7 @@ public class Dialogue4 : MonoBehaviour
         else if(numeroDialogue1 == 7)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentenceLent("Jésus Christ lui-même."));
+            StartCoroutine(TypeSentence("Jésus Christ lui-même."));
 
         }
 
