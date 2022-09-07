@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Oscar.unity
     guid: 1cfd490fae5f99b4b8853ebaee2634f4
+  - enabled: 1
+    path: Assets/Scenes/DARK JESUS.unity
+    guid: e4830b8e9bd5efa4aa1f80f2d46bf227
   m_configObjects: {}
