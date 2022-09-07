@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RefBackgrounds : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class RefBackgrounds : MonoBehaviour
     public GameObject ilePaques;
 
     public GameObject champs;
+
+    public Image final;
 
     private void Awake()
     {
