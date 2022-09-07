@@ -75,16 +75,26 @@ public class MainManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.Z))
         {
-            partie = 1;
-            numeroScript = 2;
+            FermetureScene(3);
+
+            partie += 1;
+
+            transitionPerso = true;
+
+            numeroScript = 1;
 
             SelectionDialogue();
         }
 
         if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.E))
         {
-            partie = 1;
-            numeroScript = 3;
+            FermetureScene(3);
+
+            partie += 1;
+
+            transitionPerso = true;
+
+            numeroScript = 2;
 
             SelectionDialogue();
         }
@@ -109,9 +119,9 @@ public class MainManager : MonoBehaviour
                 OuvertureScene(2);
 
                 RefBackgrounds.Instance.resto.SetActive(false);
-                /*RefBackgrounds.Instance.valhalla.SetActive(false);
+                RefBackgrounds.Instance.valhalla.SetActive(false);
                 RefBackgrounds.Instance.ilePaques.SetActive(false);
-                RefBackgrounds.Instance.ciel.SetActive(false);*/
+                RefBackgrounds.Instance.ciel.SetActive(false);
 
                 RefChara.Instance.gameObject.SetActive(false);
                 ReferencesUI.Instance.dialogue.gameObject.SetActive(false);
@@ -128,7 +138,6 @@ public class MainManager : MonoBehaviour
         // TRANSITION SORTIE DU MINI JEU
         else if((partie == 3 || partie == 4) && noControl)
         {
-            Debug.Log(19999);
             timer += Time.deltaTime;
 
             if (timer > 2.2f)

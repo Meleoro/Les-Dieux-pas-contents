@@ -203,7 +203,6 @@ public class Dialogue2 : MonoBehaviour
             RefChara.Instance.Satan.GetComponent<Image>().DOFade(1, 0.3f);
             ReferencesUI.Instance.nom.text = "Satan <3";
             StartCoroutine(TypeSentence("Tu me remercieras plus tard ;)"));
-            RefBackgrounds.Instance.ilePaques.SetActive(false);
         }
 
 
@@ -232,13 +231,13 @@ public class Dialogue2 : MonoBehaviour
             RefChara.Instance.makeMakeColere.SetActive(false);
         }
 
-        if (numeroDialogue2 == 2)
+        else if (numeroDialogue2 == 2)
         {
             ReferencesUI.Instance.nom.text = "Make-Make";
             StartCoroutine(TypeSentence("Pellerin récolté œufs ?"));
         }
 
-        if (numeroDialogue2 == 3)
+        else if(numeroDialogue2 == 3)
         {
             RefChara.Instance.makeMakeContent.GetComponent<Image>().DOFade(0, 0.3f);
             RefChara.Instance.makeMakeContent.SetActive(false);
@@ -250,25 +249,25 @@ public class Dialogue2 : MonoBehaviour
             StartCoroutine(TypeSentence("Qu’est-ce que ? Œufs cassés ?"));
         }
 
-        if (numeroDialogue2 == 4)
+        else if(numeroDialogue2 == 4)
         {
             ReferencesUI.Instance.nom.text = "Make-Make";
             StartCoroutine(TypeSentence("PELERIN BOOM BOOM ŒUFS ?"));
         }
 
-        if (numeroDialogue2 == 5)
+        else if(numeroDialogue2 == 5)
         {
             ReferencesUI.Instance.nom.text = "Make-Make";
             StartCoroutine(TypeSentence("Après tout ce que Make-Make a fait pour avoir œufs, le pèlerin boom boom tout travail de Make-Make."));
         }
 
-        if (numeroDialogue2 == 6)
+        else if(numeroDialogue2 == 6)
         {
             ReferencesUI.Instance.nom.text = "Make-Make";
             StartCoroutine(TypeSentence("MAKE-MAKE VAS BOOM BOOM BOOOOOM LE PELERIN !!!"));
         }
 
-        if (numeroDialogue2 == 7)
+        else if(numeroDialogue2 == 7)
         {
             ReferencesUI.Instance.nom.text = "Make-Make";
             StartCoroutine(TypeSentence("AHHHH BOOM BOOOOM !!"));
