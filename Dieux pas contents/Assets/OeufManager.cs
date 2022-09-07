@@ -157,7 +157,7 @@ public class OeufManager : MonoBehaviour
         texte.text = badScore + "/3";
         if (badScore == 3)
         {
-            loseCondition.Lost = true;
+            GameOver.Instance.LoseGame();
         }
     }
 
