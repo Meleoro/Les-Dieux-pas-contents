@@ -28,7 +28,7 @@ public class Dialogue2 : MonoBehaviour
             ReferencesUI.Instance.nom.text = "Téléphone";
             ReferencesUI.Instance.dialogue.text = "Bzzz…Bzzz";
 
-            RefBackgrounds.Instance.ilePaques.SetActive(true);
+           RefBackgrounds.Instance.ilePaques.SetActive(true);
             RefBackgrounds.Instance.restoFlou.SetActive(false);
             RefBackgrounds.Instance.resto.SetActive(false);
 
@@ -311,6 +311,6 @@ public class Dialogue2 : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
 
-        MainManager.Instance.noControl = false;
+       // MainManager.Instance.noControl = false;
     }
 }

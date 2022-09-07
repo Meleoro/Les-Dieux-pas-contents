@@ -7,6 +7,7 @@ public class Jesus : MonoBehaviour
 {
     public Rail rail;
     public static Jesus Instance;
+    public Rigidbody2D rb;
 
     private int currentSeg;
     private float transition;
@@ -32,6 +33,7 @@ public class Jesus : MonoBehaviour
     public bool surRail;
     public bool launchAnimation;
     public float timerGeneral;
+
 
 
     private void Awake()
@@ -78,9 +80,9 @@ public class Jesus : MonoBehaviour
             MouvementsJesus();
         }
         
-        else if (launchAnimation)
+        else if (launchAnimation && timerGeneral < 10.2f)
         {
-            transform.DOMoveY(0, 1);
+            transform.DOMoveY(0, 0.6f);
         }
 
         
@@ -135,7 +137,7 @@ public class Jesus : MonoBehaviour
         if (currentSeg == 7)
             currentSeg = 1;
 
-        transform.position = rail.LinearPosition(currentSeg, nextSeg, transition);
+        rb.velocity = rail.LinearPosition(currentSeg, nextSeg, transition).normalized * 2.2f;
     }
 
 
@@ -180,7 +182,9 @@ public class Jesus : MonoBehaviour
         {
             currentHealth -= 1;
 
-            gameObject.transform.DOShakePosition(1f, 0.1f);
+            gameObject.transform.DOShakePosition(0.04f, 0.05f);
+
+            Destroy(collision.gameObject);
         }
     }
 
