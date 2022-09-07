@@ -62,9 +62,7 @@ public class OeufManager : MonoBehaviour
         }
         else if (score == 3 && !canSpawnEgg && brokenEgg)
         {
-            StartCoroutine(AngeDialogue(28));
-            panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(3, 2, 1),1*Time.unscaledDeltaTime);
-            panier.position = Vector3.MoveTowards(panier.position,new Vector3(panier.position.x, -2, 0),0.5f*Time.unscaledDeltaTime);
+            StartCoroutine(AngeDialogue2(28));
             Ange.Instance.AngeApparait("Ah attention élu de la prophétie, les oeufs semblent pas atteindre leur objectif!",5,0.3f,
                 "Prennez tout votre temps heros, n'oubliez pas que tant que vous ne relachez pas le clic gauche de la souris, l'oeuf suivra toujours la souris.",7,0,
                 "Efforcez-vous de ne pas faire de gestes brusques et relachez le clic gauche uniquement quand l'oeuf est bien au dessus du panier",6,0,
@@ -85,7 +83,13 @@ public class OeufManager : MonoBehaviour
         }
         else if (score == 6 && !canSpawnEgg && brokenEgg)
         {
-            panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(5, 2, 1),1*Time.unscaledDeltaTime);
+            StartCoroutine(AngeDialogue3(11));
+            Ange.Instance.AngeApparait("Euhm...",3,0,
+                "Vous faut-il un panier encore plus grand?",4,0,
+                "Très bien...",3,0,
+                "",0,0,
+                "",0,0);
+
         }
         else if (score == 7 && !canSpawnEgg && brokenEgg)
         {
@@ -101,8 +105,12 @@ public class OeufManager : MonoBehaviour
         }
         else if (score == 9 && !canSpawnEgg && brokenEgg)
         {
-            panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(11, 3, 1),1*Time.unscaledDeltaTime);
-            panier.position = Vector3.MoveTowards(panier.position,new Vector3(panier.position.x, -1, 0),0.2f*Time.unscaledDeltaTime);
+            StartCoroutine(AngeDialogue4(11));
+            Ange.Instance.AngeApparait("Mais...",3,0,
+                "MAIS CESSEZ DONC",3,0.8f,
+                "ARRETEZ DE JOUER",4,0.8f,
+                "LES OEUFS DANS LE PANIER JE VOUS PRIE",3,0f,
+                "LE DESTIN DU MONDE ENTIER EN DEPEND",3,2);
         }
         else if (score == 10 && !newScene)
         {
@@ -133,5 +141,36 @@ public class OeufManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         EggRespawn();
+        canSpawnEgg = true;
+        brokenEgg = false;
+    }
+    public IEnumerator AngeDialogue2(float time)
+    {
+        yield return new WaitForSeconds(18);
+        panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(3, 2, 1),1*Time.deltaTime);
+        panier.position = Vector3.MoveTowards(panier.position,new Vector3(panier.position.x, -2, 0),0.5f*Time.deltaTime);
+        yield return new WaitForSeconds(time-18);
+        EggRespawn();
+        canSpawnEgg = true;
+        brokenEgg = false;
+    }
+    public IEnumerator AngeDialogue3(float time)
+    {
+        yield return new WaitForSeconds(7);
+        panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(5, 2, 1),1*Time.deltaTime);
+        yield return new WaitForSeconds(time-7);
+        EggRespawn();
+        canSpawnEgg = true;
+        brokenEgg = false;
+    }
+    public IEnumerator AngeDialogue4(float time)
+    {
+        yield return new WaitForSeconds(5);
+        panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(11, 3, 1),1*Time.deltaTime);
+        panier.position = Vector3.MoveTowards(panier.position,new Vector3(panier.position.x, -1, 0),0.2f*Time.deltaTime);
+        yield return new WaitForSeconds(time);
+        EggRespawn();
+        canSpawnEgg = true;
+        brokenEgg = false;
     }
 }
