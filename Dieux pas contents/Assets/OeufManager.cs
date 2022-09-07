@@ -38,15 +38,17 @@ public class OeufManager : MonoBehaviour
 
         if (score is >= 3 and < 6)
         {
-            panier.localScale = new Vector3();
+            panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(3, 2, 1),1*Time.deltaTime);
+            panier.position = Vector3.MoveTowards(panier.position,new Vector3(panier.position.x, -2, 0),0.5f*Time.deltaTime);
         }
         else if (score is >= 6 and < 9)
         {
-            
+            panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(5, 2, 1),1*Time.deltaTime);
         }
         else if (score == 9)
         {
-            
+            panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(11, 3, 1),1*Time.deltaTime);
+            panier.position = Vector3.MoveTowards(panier.position,new Vector3(panier.position.x, -1, 0),0.2f*Time.deltaTime);
         }
         else if (score == 10 && !newScene)
         {

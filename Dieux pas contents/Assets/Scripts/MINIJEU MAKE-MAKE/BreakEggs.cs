@@ -25,7 +25,7 @@ public class BreakEggs : MonoBehaviour
 
     public float speed;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         StartCoroutine(EggLaunch());
         oeufManager = GameObject.Find("PANIER").GetComponent<OeufManager>();
