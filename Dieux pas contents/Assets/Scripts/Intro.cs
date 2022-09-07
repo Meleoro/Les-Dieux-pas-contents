@@ -239,7 +239,7 @@ public class Intro : MonoBehaviour
 
             yield return new WaitForSeconds(0.03f);
         }
-        MainManager.Instance.noControl = false;
+        //MainManager.Instance.noControl = false;
 
     }
 
@@ -255,6 +255,6 @@ public class Intro : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
 
-        MainManager.Instance.noControl = false;
+        //MainManager.Instance.noControl = false;
     }
 }

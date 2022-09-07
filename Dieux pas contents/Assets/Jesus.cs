@@ -58,6 +58,8 @@ public class Jesus : MonoBehaviour
 
         currentHealth = health;
 
+        RefBackgrounds.Instance.cielDark.SetActive(false);
+
 
         surRail = false;
         cantAttack = true;
@@ -68,7 +70,7 @@ public class Jesus : MonoBehaviour
     {
         timerGeneral += Time.deltaTime;
 
-        if (currentHealth <= currentHealth / 2 && !stop)
+        if (currentHealth <= health / 2 && !stop)
         {
             timerGeneral = 0;
             phase2 = true;
@@ -76,6 +78,7 @@ public class Jesus : MonoBehaviour
             cantAttack = true;
             surRail = false;
 
+            currentHealth += 100;
             stop = true;
         }
 
@@ -154,7 +157,7 @@ public class Jesus : MonoBehaviour
             }
         }
 
-        else
+        else if (!dying)
         {
             timerPhase2 += Time.deltaTime;
 
@@ -197,8 +200,18 @@ public class Jesus : MonoBehaviour
 
 
         // DEGATS
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !dying)
+        {
             dying = true;
+
+            transform.DOMove(new Vector2(9, 0), 1);
+            transform.DOShakePosition(5, 1);
+
+            cantAttack = true;
+
+            MainManager.Instance.partie++;
+            MainManager.Instance.SelectionDialogue();
+        }
     }
 
 

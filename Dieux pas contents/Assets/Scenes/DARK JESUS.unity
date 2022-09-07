@@ -590,7 +590,7 @@ MonoBehaviour:
   rail: {fileID: 1048494810}
   rb: {fileID: 858917786}
   JesusSpeed: 2.2
-  health: 300
+  health: 400
   currentHealth: 0
   bullet: {fileID: 4843137696543723247, guid: 7be241b2f978d5a4aa8e69982e613c44, type: 3}
   bulletSpawner: {fileID: 501619376}

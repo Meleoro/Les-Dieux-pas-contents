@@ -23,6 +23,8 @@ public class MainManager : MonoBehaviour
     private bool stop;
     private string activeMiniGame;
 
+    public bool isFinished;
+
 
     private void Awake()
     {
@@ -50,150 +52,160 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
-        if (!noControl)
+        if (!isFinished)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!noControl)
             {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    SelectionDialogue();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.AltGr))
+            {
+                partie += 1;
+
                 SelectionDialogue();
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.AltGr))
-        {
-            partie += 1;
-
-            SelectionDialogue();
-        }
-
-        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.A))
-        {
-            partie = 1;
-            numeroScript = 1;
-
-            SelectionDialogue();
-        }
-
-        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.Z))
-        {
-            FermetureScene(3);
-
-            partie += 1;
-
-            transitionPerso = true;
-
-            numeroScript = 1;
-
-            SelectionDialogue();
-        }
-
-        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.E))
-        {
-            FermetureScene(3);
-
-            partie += 1;
-
-            transitionPerso = true;
-
-            numeroScript = 2;
-
-            SelectionDialogue();
-        }
-
-        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.R))
-        {
-            partie = 1;
-            numeroScript = 4;
-
-            SelectionDialogue();
-        }
-
-
-        // TRANSITION ENTREE DANS SCENE DE MINI JEU
-        if (partie == 2 && SceneManager.GetActiveScene().name != activeMiniGame)
-        {
-            timer += Time.deltaTime;
-
-            if(timer > 2.2f)
+            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.A))
             {
-                SceneManager.LoadScene(activeMiniGame);
-                OuvertureScene(2);
+                partie = 1;
+                numeroScript = 1;
 
-                RefBackgrounds.Instance.resto.SetActive(false);
-                /*RefBackgrounds.Instance.valhalla.SetActive(false);
-                RefBackgrounds.Instance.ilePaques.SetActive(false);
-                RefBackgrounds.Instance.ciel.SetActive(false);*/
-
-                RefChara.Instance.gameObject.SetActive(false);
-                ReferencesUI.Instance.dialogue.gameObject.SetActive(false);
-                ReferencesUI.Instance.nom.gameObject.SetActive(false);
-                ReferencesUI.Instance.fonds.SetActive(false);
-
-                timer = 0;
-
-                noControl = true;
+                SelectionDialogue();
             }
-        }
 
-
-        // TRANSITION SORTIE DU MINI JEU
-        else if((partie == 3 || partie == 4) && noControl)
-        {
-            timer += Time.deltaTime;
-
-            if (timer > 2.2f)
+            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.Z))
             {
-                if(SceneManager.GetActiveScene().name != "Main")
+                FermetureScene(3);
+
+                partie += 1;
+
+                transitionPerso = true;
+
+                numeroScript = 1;
+
+                SelectionDialogue();
+            }
+
+            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.E))
+            {
+                FermetureScene(3);
+
+                partie += 1;
+
+                transitionPerso = true;
+
+                numeroScript = 2;
+
+                SelectionDialogue();
+            }
+
+            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.R))
+            {
+                partie = 1;
+                numeroScript = 4;
+
+                SelectionDialogue();
+            }
+
+
+            // TRANSITION ENTREE DANS SCENE DE MINI JEU
+            if (partie == 2 && SceneManager.GetActiveScene().name != activeMiniGame)
+            {
+                timer += Time.deltaTime;
+
+                if (timer > 2.2f)
                 {
-                    SceneManager.LoadScene("Main");
+                    SceneManager.LoadScene(activeMiniGame);
                     OuvertureScene(2);
 
-                    partie += 1;
-                    SelectionDialogue();
-                }
+                    RefBackgrounds.Instance.resto.SetActive(false);
+                    /*RefBackgrounds.Instance.valhalla.SetActive(false);
+                    RefBackgrounds.Instance.ilePaques.SetActive(false);
+                    RefBackgrounds.Instance.ciel.SetActive(false);*/
 
+                    RefChara.Instance.gameObject.SetActive(false);
+                    ReferencesUI.Instance.dialogue.gameObject.SetActive(false);
+                    ReferencesUI.Instance.nom.gameObject.SetActive(false);
+                    ReferencesUI.Instance.fonds.SetActive(false);
 
-                RefChara.Instance.gameObject.SetActive(true);
-                ReferencesUI.Instance.dialogue.gameObject.SetActive(true);
-                ReferencesUI.Instance.nom.gameObject.SetActive(true);
-                ReferencesUI.Instance.fonds.SetActive(true);
-
-
-                if (timer > 3.5f)
-                {
-                    noControl = false;
                     timer = 0;
-                    stop = false;
+
+                    noControl = true;
+                }
+            }
+
+
+            // TRANSITION SORTIE DU MINI JEU
+            else if ((partie == 3 || partie == 4) && noControl)
+            {
+                timer += Time.deltaTime;
+
+                if (timer > 2.2f)
+                {
+                    if (SceneManager.GetActiveScene().name != "Main")
+                    {
+                        SceneManager.LoadScene("Main");
+                        OuvertureScene(2);
+
+                        partie += 1;
+                        SelectionDialogue();
+                    }
+
+
+                    RefChara.Instance.gameObject.SetActive(true);
+                    ReferencesUI.Instance.dialogue.gameObject.SetActive(true);
+                    ReferencesUI.Instance.nom.gameObject.SetActive(true);
+                    ReferencesUI.Instance.fonds.SetActive(true);
+
+
+                    if (timer > 3.5f)
+                    {
+                        noControl = false;
+                        timer = 0;
+                        stop = false;
+                    }
+                }
+            }
+
+
+            // TRANSITION CHANGEMENT DE PERSONNAGE
+            else if (transitionPerso)
+            {
+                noControl = true;
+                timer += Time.deltaTime;
+
+                if (timer > 3.2f)
+                {
+                    if (!stop)
+                    {
+                        OuvertureScene(3);
+
+                        stop = true;
+                        partie = 1;
+                        numeroScript += 1;
+
+                        SelectionDialogue();
+                    }
+
+                    else if (timer > 4f)
+                    {
+                        stop = false;
+                        noControl = false;
+                        transitionPerso = false;
+                        timer = 0;
+                    }
                 }
             }
         }
-
-
-        // TRANSITION CHANGEMENT DE PERSONNAGE
-        else if(transitionPerso)
+        else
         {
-            noControl = true;
-            timer += Time.deltaTime;
-
-            if(timer > 3.2f)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (!stop)
-                {
-                    OuvertureScene(3);
-
-                    stop = true;
-                    partie = 1;
-                    numeroScript += 1;
-
-                    SelectionDialogue();
-                }
-
-                else if(timer > 4f)
-                {
-                    stop = false;
-                    noControl = false;
-                    transitionPerso = false;
-                    timer = 0;
-                }
+                Application.Quit();
             }
         }
     }
