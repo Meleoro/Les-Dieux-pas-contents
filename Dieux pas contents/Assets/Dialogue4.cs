@@ -147,7 +147,6 @@ public class Dialogue4 : MonoBehaviour
             RefChara.Instance.nous.SetActive(false);
             RefChara.Instance.jesus.GetComponent<Image>().DOFade(0, 0);
             RefChara.Instance.jesus.SetActive(true);
-            RefChara.Instance.jesus.transform.DOMoveY(195,1);
             RefChara.Instance.jesus.GetComponent<Image>().DOFade(1, 0.3f);
         }
 
@@ -185,6 +184,8 @@ public class Dialogue4 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Jésus";
             StartCoroutine(TypeSentence("AARGHH !"));
+            RefChara.Instance.Satan.GetComponent<Image>().DOFade(0, 0.3f);
+            RefChara.Instance.Satan.SetActive(false);
             RefChara.Instance.jesus.GetComponent<Image>().DOFade(0, 0);
             RefChara.Instance.jesus.SetActive(true);
             RefChara.Instance.jesus.GetComponent<Image>().DOFade(1, 0.3f);
@@ -270,19 +271,19 @@ public class Dialogue4 : MonoBehaviour
         else if(numeroDialogue2 == 2)
         {
             ReferencesUI.Instance.nom.text = "Jésus";
-            StartCoroutine(TypeSentenceLent("C’EsT dOnC AinSi qUe leS tEmPs tOuChEnt à lEuRs FiN."));
+            StartCoroutine(TypeSentence("C’EsT dOnC AinSi qUe leS tEmPs tOuChEnt à lEuRs FiN."));
         }
 
         else if (numeroDialogue2 == 3)
         {
             ReferencesUI.Instance.nom.text = "Jésus";
-            StartCoroutine(TypeSentenceLent("Tu éTaiS cEnSé SaUvEr le mOnDe, pAs le déTrUiRe."));
+            StartCoroutine(TypeSentence("Tu éTaiS cEnSé SaUvEr le mOnDe, pAs le déTrUiRe."));
         }
 
         else if (numeroDialogue2 == 4)
         {
             ReferencesUI.Instance.nom.text = "Jésus";
-            StartCoroutine(TypeSentenceLent("Jeune brebis, dis moi, pourquoi te bats-tu ? D'où vient cette volonté de faire régner le chaos ?"));
+            StartCoroutine(TypeSentence("Jeune brebis, dis moi, pourquoi te bats-tu ? D'où vient cette volonté de faire régner le chaos ?"));
 
             RefChara.Instance.darkJesus.GetComponent<Image>().DOFade(0, 0.3f);
             RefChara.Instance.darkJesus.SetActive(false);
@@ -294,7 +295,7 @@ public class Dialogue4 : MonoBehaviour
         else if (numeroDialogue2 == 5)
         {
             ReferencesUI.Instance.nom.text = "Téléphone";
-            StartCoroutine(TypeSentenceLent("Bzzz…Bzzz"));
+            StartCoroutine(TypeSentence("Bzzz…Bzzz"));
 
             RefChara.Instance.jesus.GetComponent<Image>().DOFade(0, 0.3f);
             RefChara.Instance.jesus.SetActive(false);
@@ -303,7 +304,7 @@ public class Dialogue4 : MonoBehaviour
         else if (numeroDialogue2 == 6)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentenceLent("C’est fini Jésus, ma brebis ne te suivera pas, tu ne peux plus rien pour le monde, j’ai gagné :D !"));
+            StartCoroutine(TypeSentence("C’est fini Jésus, ma brebis ne te suivera pas, tu ne peux plus rien pour le monde, j’ai gagné :D !"));
 
             RefChara.Instance.Satan.GetComponent<Image>().DOFade(0, 0);
             RefChara.Instance.Satan.SetActive(true);
@@ -313,7 +314,7 @@ public class Dialogue4 : MonoBehaviour
         else if (numeroDialogue2 == 7)
         {
             ReferencesUI.Instance.nom.text = "Jésus";
-            StartCoroutine(TypeSentenceLent("C’est donc la fin…"));
+            StartCoroutine(TypeSentence("C’est donc la fin…"));
             RefChara.Instance.Satan.GetComponent<Image>().DOFade(0, 0.3f);
             RefChara.Instance.Satan.SetActive(false);
             RefChara.Instance.jesus.GetComponent<Image>().DOFade(0, 0);
@@ -325,19 +326,19 @@ public class Dialogue4 : MonoBehaviour
         else if (numeroDialogue2 == 8)
         {
             ReferencesUI.Instance.nom.text = "Jésus";
-            StartCoroutine(TypeSentenceLent("(Comment je fais pour entendre des SMS ?)"));
+            StartCoroutine(TypeSentence("(Comment je fais pour entendre des SMS ?)"));
         }
 
         else if (numeroDialogue2 == 9)
         {
             ReferencesUI.Instance.nom.text = "Jésus";
-            StartCoroutine(TypeSentenceLent("Satan… Il y a du bon en toi, je le sais."));
+            StartCoroutine(TypeSentence("Satan… Il y a du bon en toi, je le sais."));
         }
 
         else if (numeroDialogue2 == 10)
         {
             ReferencesUI.Instance.nom.text = "Jésus";
-            StartCoroutine(TypeSentenceLent("Adieu..."));
+            StartCoroutine(TypeSentence("Adieu..."));
             RefChara.Instance.jesus.GetComponent<Image>().DOFade(0, 0.5f);
             RefChara.Instance.jesus.SetActive(false);
         }
@@ -345,7 +346,7 @@ public class Dialogue4 : MonoBehaviour
         else if (numeroDialogue2 == 11)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentenceLent("C’est bon on l'a fait, on a gagné !!! Bon travail /o/"));
+            StartCoroutine(TypeSentence("C’est bon on l'a fait, on a gagné !!! Bon travail /o/"));
             RefChara.Instance.Satan.GetComponent<Image>().DOFade(0, 0.3f);
             RefChara.Instance.Satan.SetActive(true);
         }
@@ -353,25 +354,25 @@ public class Dialogue4 : MonoBehaviour
         else if (numeroDialogue2 == 12)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentenceLent("Le monde connaît maintenant le chaos ^^ !!"));
+            StartCoroutine(TypeSentence("Le monde connaît maintenant le chaos ^^ !!"));
         }
 
         else if (numeroDialogue2 == 13)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentenceLent("Rejoins moi chez moi ! Je t’ai fait ces beignets que tu aimes tant ;D !"));
+            StartCoroutine(TypeSentence("Rejoins moi chez moi ! Je t’ai fait ces beignets que tu aimes tant ;D !"));
         }
 
         else if (numeroDialogue2 == 14)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentenceLent("Oh et j’ai réservé une table dans ton resto préféré ce soir !"));
+            StartCoroutine(TypeSentence("Oh et j’ai réservé une table dans ton resto préféré ce soir !"));
         }
 
         else if (numeroDialogue2 == 15)
         {
             ReferencesUI.Instance.nom.text = "Satan <3";
-            StartCoroutine(TypeSentenceLent("A ce soir <3 ! (haha j’ai hâte xP) "));
+            StartCoroutine(TypeSentence("A ce soir <3 ! (haha j’ai hâte xP) "));
         }
 
 
@@ -408,7 +409,7 @@ public class Dialogue4 : MonoBehaviour
             ReferencesUI.Instance.dialogue.text += letter;
             MainManager.Instance.noControl = true;
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.1f);
         }
 
        // MainManager.Instance.noControl = false;
