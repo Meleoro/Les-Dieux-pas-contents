@@ -30,6 +30,7 @@ public class Dialogue3 : MonoBehaviour
 
         if (numeroDialogue1 == 1)
         {
+            RefBackgrounds.Instance.ilePaques.SetActive(false);
             ReferencesUI.Instance.nom.text = "Téléphone";
             StartCoroutine(TypeSentence("Bzzz…Bzzz"));
 
@@ -215,20 +216,20 @@ public class Dialogue3 : MonoBehaviour
 
             RefBackgrounds.Instance.valhalla.SetActive(true);
         }
-        
-        if (numeroDialogue2 == 2)
+
+        else if (numeroDialogue2 == 2)
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentenceLent("Serait-ce des âmes de minables sans honneur ? Leur mort n’est même pas digne d’un chien. "));
         }
 
-        if (numeroDialogue2 == 3)
+        else if(numeroDialogue2 == 3)
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentenceLent("Douanier, des expliquations..."));
         }
 
-        if (numeroDialogue2 == 4)
+        else if(numeroDialogue2 == 4)
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentenceLent("Même vous n'êtes pas capable de faire votre travail… Je suis hautement déçu guerrier."));
@@ -236,7 +237,7 @@ public class Dialogue3 : MonoBehaviour
 
         }
 
-        if (numeroDialogue2 == 5)
+        else if(numeroDialogue2 == 5)
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentenceLent("Vous avez ici perdu non seulement votre poste mais surtout votre honneur…"));
@@ -244,7 +245,7 @@ public class Dialogue3 : MonoBehaviour
 
         }
 
-        if (numeroDialogue2 == 6)
+        else if(numeroDialogue2 == 6)
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentenceLent("Je vais vous renvoyer directement vers votre employeur. Plus jamais je n'embaucherai des douaniers du paradis (et j’irais toucher deux mots à ce Jésus Christ)."));
@@ -253,7 +254,7 @@ public class Dialogue3 : MonoBehaviour
             RefChara.Instance.intiColere.SetActive(true);
         }
 
-        if (numeroDialogue2 == 7)
+        else if(numeroDialogue2 == 7)
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentenceLent("Je vais vous renvoyer directement vers votre employeur. Plus jamais je n'embaucherai des douaniers du paradis (et j’irais toucher deux mots à ce Jésus Christ)."));
@@ -262,7 +263,7 @@ public class Dialogue3 : MonoBehaviour
             RefChara.Instance.intiColere.SetActive(true);
         }
 
-        if (numeroDialogue2 == 8)
+        else if(numeroDialogue2 == 8)
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentenceLent("Déguerpissez minable !"));
@@ -271,7 +272,7 @@ public class Dialogue3 : MonoBehaviour
             RefChara.Instance.intiColere.SetActive(true);
         }
 
-        if (numeroDialogue2 == 9)
+        else if(numeroDialogue2 == 9)
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentenceLent("O, vous voulez peut-être que je vous appelle un taxi ? Bien sur je peux faire ça, aucun soucis. Bonne journée à vous !"));
