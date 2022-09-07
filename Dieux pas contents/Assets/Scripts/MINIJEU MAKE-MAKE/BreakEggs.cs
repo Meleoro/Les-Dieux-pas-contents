@@ -50,8 +50,8 @@ public class BreakEggs : MonoBehaviour
             jaune.SetActive(true);
             InheritVelocity(jauneRb);
             gameObject.SetActive(false);
-            oeufManager.EggRespawn();
             oeufManager.score++;
+            oeufManager.brokenEgg = true;
         }
     }
 
