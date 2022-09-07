@@ -123,6 +123,7 @@ public class Dialogue1 : MonoBehaviour
 
         if (numeroDialogue2 == 1)
         {
+            RefChara.Instance.nous.SetActive(true);
             ReferencesUI.Instance.nom.text = "Zeus";
             StartCoroutine(TypeSentence("Ahh merci garçon, c’est pas trop tôt, j’ai une faim de dieu hahaha."));
             

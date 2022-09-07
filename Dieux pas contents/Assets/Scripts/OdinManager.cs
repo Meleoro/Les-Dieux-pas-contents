@@ -4,6 +4,9 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 public class OdinManager : MonoBehaviour
 {
@@ -16,6 +19,13 @@ public class OdinManager : MonoBehaviour
     public TextMeshProUGUI funnyText;
     public int textNumber;
     public GameObject gameOverScreen;
+
+    public Image BouttonNON;
+    public Image BouttonOUI;
+    public Sprite imagepressOUI;
+    public Sprite imagepressNON;
+    public Sprite ogNON;
+    public Sprite ogOUI;
 
     public GameObject Personnes;
     public GameObject Parchemins;
@@ -120,6 +130,12 @@ public class OdinManager : MonoBehaviour
             }
 
         }
+
+        if (Personne == 7)
+        {
+            MainManager.Instance.partie++;
+            MainManager.Instance.SelectionDialogue();
+        }
     }
 
 
@@ -167,6 +183,7 @@ public class OdinManager : MonoBehaviour
 
     void PersonneSuivante()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         accepter = false;
         refuser = false;
         Bouttons.SetActive(false);
@@ -197,6 +214,26 @@ public class OdinManager : MonoBehaviour
         Parchemins.transform.DOMoveY(positionParchemins.y-630, 1);
         Bouttons.SetActive(true);
     }
+
+    public void ChangeSkinButtonNON()
+    {
+        BouttonNON.sprite = imagepressNON;
+        StartCoroutine(Timer());
+        BouttonNON.sprite = ogNON;
+    }
+
+    public void ChangeSkinButtonOUI()
+    {
+        BouttonOUI.sprite = imagepressOUI;
+        StartCoroutine(Timer());
+        BouttonOUI.sprite = ogOUI;
+    }
+
+    IEnumerator Timer()
+    { 
+        yield return new WaitForSeconds(0.3f);
+    }
 }
+
 
 
