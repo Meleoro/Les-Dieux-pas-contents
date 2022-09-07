@@ -20,6 +20,8 @@ public class OeufManager : MonoBehaviour
     public GameOver loseCondition;
     private bool newScene;
     [SerializeField] private GameObject ange;
+    private bool canSpawnEgg = true;
+    private bool brokenEgg = false;
     
     // Start is called before the first frame update
     void Start()
@@ -44,14 +46,56 @@ public class OeufManager : MonoBehaviour
             loseCondition.Lost = true;
         }
 
-        if (score is >= 3 and < 6)
+        if (score == 1 && !canSpawnEgg && brokenEgg)
         {
+            canSpawnEgg = true;
+            brokenEgg = false;
+            EggRespawn();
+        }
+        else if (score == 2)
+        {
+            canSpawnEgg = true;
+            brokenEgg = false;
+            EggRespawn();
+        }
+        else if (score == 3)
+        {
+            StartCoroutine(AngeDialogue(28));
             panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(3, 2, 1),1*Time.unscaledDeltaTime);
             panier.position = Vector3.MoveTowards(panier.position,new Vector3(panier.position.x, -2, 0),0.5f*Time.unscaledDeltaTime);
+            Ange.Instance.AngeApparait("Ah attention élu de la prophétie, les oeufs semblent pas atteindre leur objectif!",5,0.3f,
+                "Prennez tout votre temps heros, n'oubliez pas que tant que vous ne relachez pas le clic gauche de la souris, l'oeuf suivra toujours la souris.",7,0,
+                "Efforcez-vous de ne pas faire de gestes brusques et relachez le clic gauche uniquement quand l'oeuf est bien au dessus du panier",6,0,
+                "Permettez moi d'élargir le panier pour vous faciliter la tâche!",3,0,
+                "",0,0);
         }
-        else if (score is >= 6 and < 9)
+        else if (score == 4)
+        {
+            canSpawnEgg = true;
+            brokenEgg = false;
+            EggRespawn();
+        }
+        else if (score == 5)
+        {
+            canSpawnEgg = true;
+            brokenEgg = false;
+            EggRespawn();
+        }
+        else if (score == 6)
         {
             panier.localScale = Vector3.MoveTowards(panier.localScale,new Vector3(5, 2, 1),1*Time.unscaledDeltaTime);
+        }
+        else if (score == 7)
+        {
+            canSpawnEgg = true;
+            brokenEgg = false;
+            EggRespawn();
+        }
+        else if (score == 8)
+        {
+            canSpawnEgg = true;
+            brokenEgg = false;
+            EggRespawn();
         }
         else if (score == 9)
         {
@@ -72,7 +116,7 @@ public class OeufManager : MonoBehaviour
         if (col.gameObject.CompareTag("Ingredient"))
         {
             Destroy(col.gameObject);
-            EggRespawn();
+            brokenEgg = true;
             badScore++;
         }
     }
@@ -80,7 +124,7 @@ public class OeufManager : MonoBehaviour
     public void EggRespawn()
     {
         Instantiate(oeufObject, new Vector3(Random.Range(2f,9f),oeufRespawn.y,oeufRespawn.z), transform.rotation);
-        
+        canSpawnEgg = true;
     }
 
     public IEnumerator AngeDialogue(float time)
