@@ -2229,5 +2229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ingredient
       objectReference: {fileID: 0}
+    - target: {fileID: 8405065303045554588, guid: 2c9b549735772a147abaac28dafa144c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c9b549735772a147abaac28dafa144c, type: 3}

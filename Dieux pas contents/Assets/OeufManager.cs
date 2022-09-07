@@ -23,7 +23,7 @@ public class OeufManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        MainManager.Instance = GameObject.Find("GameManager").GetComponent<MainManager>();
     }
 
     // Update is called once per frame

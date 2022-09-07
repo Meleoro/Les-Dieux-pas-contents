@@ -26,7 +26,10 @@ public class Dialogue1 : MonoBehaviour
         numeroDialogue2 = 0;
     }
 
-
+    private void Update()
+    {
+        Debug.Log(MainManager.Instance.noControl);
+    }
 
     // FONCTION CONTENANT TOUS LES DIALOGUES AVANT LE MINI JEU
     public void AvancerDialogue1()
@@ -112,8 +115,6 @@ public class Dialogue1 : MonoBehaviour
         // Passage à la partie suivante
         else
         {
-            RefBackgrounds.Instance.restoFlou.SetActive(false);
-            RefBackgrounds.Instance.resto.SetActive(false);
             MainManager.Instance.partie += 1;
             MainManager.Instance.SelectionDialogue();
         }
@@ -127,8 +128,6 @@ public class Dialogue1 : MonoBehaviour
 
         if (numeroDialogue2 == 1)
         {
-            RefBackgrounds.Instance.resto.SetActive(true);
-            RefBackgrounds.Instance.cielDark.SetActive(false);
             RefChara.Instance.nous.SetActive(false);
             RefChara.Instance.zeusHeureux.SetActive(true);
             ReferencesUI.Instance.nom.text = "Zeus";
@@ -173,6 +172,7 @@ public class Dialogue1 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Zeus";
             StartCoroutine(TypeSentence("Comment ose tu me servir ça à moi, Zeus, le dieu des dieux ?"));
+            
         }
 
         else if(numeroDialogue2 == 7)
@@ -217,7 +217,7 @@ public class Dialogue1 : MonoBehaviour
 
             yield return new WaitForSeconds(0.03f);
         }
-        MainManager.Instance.noControl = false;
+        //MainManager.Instance.noControl = false;
     }
 
     IEnumerator TypeSentenceLent(string sentence)
@@ -232,6 +232,6 @@ public class Dialogue1 : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
 
-        MainManager.Instance.noControl = false;
+        //MainManager.Instance.noControl = false;
     }
 }
