@@ -57,6 +57,7 @@ public class SpawnIngredients : MonoBehaviour
             loseCondition.Lost = true;
         }
 
+
         if (score == 5 && !newScene)
         {
             newScene = true;

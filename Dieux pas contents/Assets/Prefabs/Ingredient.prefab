@@ -130,6 +130,8 @@ MonoBehaviour:
   sprite: {fileID: 2860836441027543522}
   objectType: 0
   rb: {fileID: 1778968116116257208}
+  casserole: {fileID: 0}
+  multiplier: 30
   delay: 0
 --- !u!70 &6682442565335714904
 CapsuleCollider2D:
