@@ -7,6 +7,7 @@ public class Jesus : MonoBehaviour
 {
     public Rail rail;
     public static Jesus Instance;
+    public Rigidbody2D rb;
 
     private int currentSeg;
     private float transition;
@@ -26,12 +27,19 @@ public class Jesus : MonoBehaviour
     private float timer1;
     private float timer2;
     private float timer3;
+    public bool phase2;
 
 
     public bool cantAttack;
     public bool surRail;
     public bool launchAnimation;
     public float timerGeneral;
+
+
+    private bool stop;
+    private bool stop2;
+    public float cooldownPhase2;
+    private float timerPhase2;
 
 
     private void Awake()
@@ -55,36 +63,93 @@ public class Jesus : MonoBehaviour
     {
         timerGeneral += Time.deltaTime;
 
-        if(timerGeneral > 10 && timerGeneral < 11)
+        if (currentHealth <= currentHealth / 2 && !stop)
         {
-            launchAnimation = true;
+            timerGeneral = 0;
+            phase2 = true;
+
+            cantAttack = true;
+            surRail = false;
+
+            stop = true;
         }
 
-        else if(timerGeneral > 12)
+
+        if (!phase2)
         {
-            cantAttack = false;
-            surRail = true;
+            if (timerGeneral > 10 && timerGeneral < 11)
+            {
+                launchAnimation = true;
+            }
+
+            else if (timerGeneral > 12)
+            {
+                cantAttack = false;
+                surRail = true;
+            }
+        }
+
+        else if(!stop2)
+        {
+            if(timerGeneral == 0)
+            {
+                transform.DOMove(new Vector2(9, 0), 1);
+                transform.DOShakePosition(1, 1);
+            }
+
+            else if(timerGeneral >= 1)
+            {
+                cantAttack = false;
+                surRail = true;
+
+                currentSeg = 1;
+                transition = 0;
+
+                JesusSpeed = 3.5f;
+
+                timer3 = 10;
+                rb.velocity = Vector2.zero;
+
+                stop2 = true;
+            }
         }
 
 
-        if (surRail)
+
+        // MOUVEMENTS
+        if (!phase2)
         {
-            if (currentSeg == 6)
-                nextSeg = 1;
+            if (surRail)
+            {
+                if (currentSeg == 6)
+                    nextSeg = 1;
 
-            else
-                nextSeg = currentSeg + 1;
+                else
+                    nextSeg = currentSeg + 1;
 
-            MouvementsJesus();
+                MouvementsJesus();
+            }
+
+            else if (launchAnimation && timerGeneral < 10.2f)
+            {
+                transform.DOMoveY(0, 0.6f);
+            }
         }
-        
-        else if (launchAnimation)
+
+        else
         {
-            transform.DOMoveY(0, 1);
+            timerPhase2 += Time.deltaTime;
+
+            if(timerPhase2 > cooldownPhase2)
+            {
+                timerPhase2 = 0;
+
+                int x = Random.Range(7, 9);
+                int y = Random.Range(-4, 4);
+
+                transform.DOMove(new Vector2(x, y), 0.5f);
+            }
         }
-
-        
-
 
 
         // ATTAQUES
@@ -98,14 +163,14 @@ public class Jesus : MonoBehaviour
             }
 
             timer2 += Time.deltaTime;
-            if (timer2 > 3 || (timer2 > 1.75f && currentHealth <= health / 2))
+            if (timer2 > 3 || (timer2 > 1.75f && phase2))
             {
                 Attaque2();
                 timer2 = 0;
             }
 
             timer3 += Time.deltaTime;
-            if (timer3 > 7 || (timer3 > 3f && currentHealth <= health / 2))
+            if (timer3 > 7 || (timer3 > cooldownPhase2 - 0.5f && phase2))
             {
                 Attaque3();
                 timer3 = 0;
@@ -135,7 +200,7 @@ public class Jesus : MonoBehaviour
         if (currentSeg == 7)
             currentSeg = 1;
 
-        transform.position = rail.LinearPosition(currentSeg, nextSeg, transition);
+        rb.velocity = rail.LinearPosition(currentSeg, nextSeg, transition).normalized * JesusSpeed;
     }
 
 
@@ -180,7 +245,9 @@ public class Jesus : MonoBehaviour
         {
             currentHealth -= 1;
 
-            gameObject.transform.DOShakePosition(1f, 0.1f);
+            gameObject.transform.DOShakePosition(0.04f, 0.05f);
+
+            Destroy(collision.gameObject);
         }
     }
 

@@ -43,6 +43,12 @@ public class Ange : MonoBehaviour
     private string message42;
     private string message52;
 
+    private float shake12;
+    private float shake22;
+    private float shake32;
+    private float shake42;
+    private float shake52;
+
 
     private void Awake()
     {
@@ -77,40 +83,50 @@ public class Ange : MonoBehaviour
                 text.DOFade(1, 2);
             }
 
-            else if (!stop2 && timer > 2 && timer < duree12 + duree22 + duree32 + duree42 + duree52)
+            else if (timer > 2 && timer < duree12 + duree22 + duree32 + duree42 + duree52 + 2)
             {
-                if(timer < duree12 && !stop2)
+                if(timer < duree12 + 2 && !stop2)
                 {
                     stop2 = true;
                     StartCoroutine(TypeSentence(message12));
+
+                    transform.DOShakePosition(duree12 / 2f, shake12);
                 }
 
-                else if(timer > duree12 && !stop3)
+                else if(timer > duree12 + 2 && !stop3)
                 {
                     stop3 = true;
                     StartCoroutine(TypeSentence(message22));
+
+                    transform.DOShakePosition(duree22 / 2f, shake22);
                 }
 
-                else if(timer > duree12 + duree22 && !stop4)
+                else if(timer > duree12 + duree22 + 2 && !stop4)
                 {
                     stop4 = true;
                     StartCoroutine(TypeSentence(message32));
+
+                    transform.DOShakePosition(duree32 / 2f, shake32);
                 }
 
-                else if (timer > duree12 + duree22 + duree32 && !stop5)
+                else if (timer > duree12 + duree22 + duree32 + 2 && !stop5)
                 {
                     stop5 = true;
                     StartCoroutine(TypeSentence(message42));
+
+                    transform.DOShakePosition(duree42 / 2f, shake42);
                 }
 
-                else if (timer > duree12 + duree22 + duree32 + duree42 && !stop6)
+                else if (timer > duree12 + duree22 + duree32 + duree42 + 2 && !stop6)
                 {
                     stop6 = true;
                     StartCoroutine(TypeSentence(message52));
+
+                    transform.DOShakePosition(duree52 / 2f, shake52);
                 }
             }
 
-            else if (timer > duree12 + duree22 + duree32 + duree42 + duree52)
+            else if (timer > duree12 + duree22 + duree32 + duree42 + duree52 + 2)
             {
                 ange.transform.DOLocalMoveX(720, 2);
 
@@ -124,24 +140,30 @@ public class Ange : MonoBehaviour
     }
 
 
-    public void AngeApparait(string message1, float duree1, string message2, float duree2, string message3, float duree3, string message4, float duree4, string message5, float duree5)
+    public void AngeApparait(string message1, float duree1, float shake1, string message2, float duree2, float shake2, string message3, float duree3, float shake3, string message4, float duree4, float shake4, 
+        string message5, float duree5, float shake5)
     {
         apparition = true;
 
         duree12 = duree1;
         message12 = message1;
+        shake12 = shake1;
 
         duree22 = duree2;
         message22 = message2;
+        shake22 = shake2;
 
         duree32 = duree3;
         message32 = message3;
+        shake32 = shake3;
 
         duree42 = duree4;
         message42 = message4;
+        shake42 = shake4;
 
         duree52 = duree5;
         message52 = message5;
+        shake52 = shake5;
 
         timer = 0;
         stop1 = false;

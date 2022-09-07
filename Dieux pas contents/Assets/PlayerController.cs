@@ -31,7 +31,11 @@ public class PlayerController : MonoBehaviour
 
         offset = transform.position - worldPos;
 
-        Ange.Instance.AngeApparait("Oui", 2, "Non", 1, "Oui", 2, "Non", 1, "AHAH", 3);
+        Ange.Instance.AngeApparait("Oui", 2, 0, 
+            "Non", 1, 0,
+            "Oui", 2, 0,
+            "Non", 1, 0,
+            "AHAH", 3, 0);
     }
 
     
@@ -83,8 +87,8 @@ public class PlayerController : MonoBehaviour
         GameObject oui = Instantiate(bullet, bulletExit.transform.position + new Vector3(0, 0.1f, 0), Quaternion.Euler(0, 0, -90));
         GameObject non = Instantiate(bullet, bulletExit.transform.position + new Vector3(0, -0.1f, 0), Quaternion.Euler(0, 0, -90));
 
-        Destroy(oui, 6f);
-        Destroy(oui, 6f);
+        Destroy(oui, 4f);
+        Destroy(oui, 4f);
     }
 
 
@@ -93,7 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "JesusShot" && !isHit)
         {
-            RefCamera.Instance.CameraShake(0.4f, 0.2f);
+            RefCamera.Instance.CameraShake(0.50f, 0.3f);
 
             currentHealth -= 1;
             isHit = true;
