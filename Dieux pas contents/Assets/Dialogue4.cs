@@ -375,17 +375,22 @@ public class Dialogue4 : MonoBehaviour
             StartCoroutine(TypeSentence("A ce soir <3 ! (haha j’ai hâte xP) "));
         }
 
+        else if (numeroDialogue2 == 16)
+        {
+            RefBackgrounds.Instance.final.DOFade(1, 2);
+            MainManager.Instance.isFinished = true;
+        }
 
 
         // Passage à la partie suivante
-        else
+        /*else
         {
             MainManager.Instance.FermetureScene(3);
 
             MainManager.Instance.partie += 1;
 
             MainManager.Instance.transitionPerso = true;
-        }
+        }*/
     }
 
     IEnumerator TypeSentence(string sentence)
