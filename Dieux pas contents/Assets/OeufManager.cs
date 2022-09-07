@@ -155,8 +155,9 @@ public class OeufManager : MonoBehaviour
                 return;
         }
         texte.text = badScore + "/3";
-        if (badScore == 3)
+        if (badScore == 3 && !newScene)
         {
+            newScene = true;
             GameOver.Instance.LoseGame();
         }
     }
