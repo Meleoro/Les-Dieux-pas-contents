@@ -49,7 +49,7 @@ public class OdinManager : MonoBehaviour
 
     IEnumerator WaitAnge()
     {
-        yield return new WaitForSeconds(11);
+        yield return new WaitForSeconds(27);
         PersonneSuivante();
     }
 
