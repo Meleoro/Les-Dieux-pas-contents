@@ -85,12 +85,12 @@ public class Jesus : MonoBehaviour
 
         if (!phase2)
         {
-            if (timerGeneral > 10 && timerGeneral < 11)
+            if (timerGeneral > 25 && timerGeneral < 26)
             {
                 launchAnimation = true;
             }
 
-            else if (timerGeneral > 12)
+            else if (timerGeneral > 26)
             {
                 cantAttack = false;
                 surRail = true;
@@ -151,7 +151,7 @@ public class Jesus : MonoBehaviour
                 MouvementsJesus();
             }
 
-            else if (launchAnimation && timerGeneral < 10.2f)
+            else if (launchAnimation && timerGeneral < 26.2)
             {
                 transform.DOMoveY(0, 0.6f);
             }
