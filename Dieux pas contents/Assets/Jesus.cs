@@ -41,6 +41,11 @@ public class Jesus : MonoBehaviour
     public float cooldownPhase2;
     private float timerPhase2;
 
+    [Header("Ghost Effect")]
+    public float ghostCooldown;
+    public GameObject ghost;
+    private float timerGhost;
+
 
     private void Awake()
     {
@@ -113,6 +118,18 @@ public class Jesus : MonoBehaviour
 
                 stop2 = true;
             }
+        }
+
+
+        // GHOST EFFECT
+        timerGhost += Time.deltaTime;
+
+        if (timerGhost > ghostCooldown && phase2)
+        {
+            timerGhost = 0;
+
+            GameObject clone = Instantiate(ghost, transform.position, Quaternion.identity);
+            Destroy(clone, 1f);
         }
 
 
