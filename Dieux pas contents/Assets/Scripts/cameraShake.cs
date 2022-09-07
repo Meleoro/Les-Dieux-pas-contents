@@ -20,7 +20,9 @@ public class cameraShake : MonoBehaviour
 
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Main")
-            transf.localPosition = RefCamera.Instance.transform.position * 8;
+        /*if(SceneManager.GetActiveScene().name == "Main")
+            transf.localPosition = RefCamera.Instance.transform.position * 8;*/
+
+        transf.localPosition = RefCamera.Instance.transform.position * 8;
     }
 }

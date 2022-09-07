@@ -90,7 +90,7 @@ public class Ange : MonoBehaviour
                     stop2 = true;
                     StartCoroutine(TypeSentence(message12));
 
-                    transform.DOShakePosition(duree12 / 2f, shake12);
+                    RefCamera.Instance.CameraShake(duree12 / 2f, shake12);
                 }
 
                 else if(timer > duree12 + 2 && !stop3)
@@ -98,7 +98,7 @@ public class Ange : MonoBehaviour
                     stop3 = true;
                     StartCoroutine(TypeSentence(message22));
 
-                    transform.DOShakePosition(1, shake22);
+                    RefCamera.Instance.CameraShake(1, shake22);
                 }
 
                 else if(timer > duree12 + duree22 + 2 && !stop4)
@@ -106,7 +106,7 @@ public class Ange : MonoBehaviour
                     stop4 = true;
                     StartCoroutine(TypeSentence(message32));
 
-                    transform.DOShakePosition(duree32 / 2f, shake32);
+                    RefCamera.Instance.CameraShake(duree32 / 2f, shake32);
                 }
 
                 else if (timer > duree12 + duree22 + duree32 + 2 && !stop5)
@@ -114,7 +114,7 @@ public class Ange : MonoBehaviour
                     stop5 = true;
                     StartCoroutine(TypeSentence(message42));
 
-                    transform.DOShakePosition(duree42 / 2f, shake42);
+                    RefCamera.Instance.CameraShake(duree42 / 2f, shake42);
                 }
 
                 else if (timer > duree12 + duree22 + duree32 + duree42 + 2 && !stop6)
@@ -122,7 +122,7 @@ public class Ange : MonoBehaviour
                     stop6 = true;
                     StartCoroutine(TypeSentence(message52));
 
-                    transform.DOShakePosition(duree52 / 2f, shake52);
+                    RefCamera.Instance.CameraShake(duree52 / 2f, shake52);
                 }
             }
 
