@@ -119,14 +119,13 @@ public class OdinManager : MonoBehaviour
         {
             if (accepter)
             {
-                GameOver();
-                
-            }
-            if (refuser)
-            {
                 positionParchemins = Parchemins.transform.position;
                 Parchemins.transform.DOMoveY(positionParchemins.y - 630, 1);
                 PersonneSuivante();
+            }
+            if (refuser)
+            {
+                GameOver();
             }
 
         }
