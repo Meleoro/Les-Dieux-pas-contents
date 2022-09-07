@@ -519,15 +519,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rail: {fileID: 1048494810}
   rb: {fileID: 858917786}
-  JesusSpeed: 1
+  JesusSpeed: 2.2
   health: 300
   currentHealth: 0
   bullet: {fileID: 4843137696543723247, guid: 7be241b2f978d5a4aa8e69982e613c44, type: 3}
   bulletSpawner: {fileID: 501619376}
+  phase2: 0
   cantAttack: 0
   surRail: 0
   launchAnimation: 0
   timerGeneral: 0
+  cooldownPhase2: 4
 --- !u!212 &858917783
 SpriteRenderer:
   m_ObjectHideFlags: 0
