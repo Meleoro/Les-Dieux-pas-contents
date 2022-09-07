@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DARK JESUS.unity
     guid: e4830b8e9bd5efa4aa1f80f2d46bf227
+  - enabled: 1
+    path: Assets/Scenes/Make-Make.unity
+    guid: f0ef58e26e8b7b44eaafbde04e0a7d3f
+  - enabled: 1
+    path: Assets/Scenes/Odin.unity
+    guid: 4b932d6e036fd3a4495d53789d4f43d8
   m_configObjects: {}

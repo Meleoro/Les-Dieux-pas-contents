@@ -137,11 +137,6 @@ public class MainManager : MonoBehaviour
                     SelectionDialogue();
                 }
 
-                if(timer > 2.3f && !stop)
-                {
-                    RefCamera.Instance.CameraShake(3f, 5f);
-                    stop = true;
-                }
 
                 RefChara.Instance.gameObject.SetActive(true);
                 ReferencesUI.Instance.dialogue.gameObject.SetActive(true);
@@ -205,8 +200,9 @@ public class MainManager : MonoBehaviour
         else if (numeroScript == 1)
         {
             activeMiniGame = "Oscar";
+            
 
-            if(partie == 1)
+            if (partie == 1)
             {
                 dialogue1.AvancerDialogue1();
             }

@@ -35,6 +35,7 @@ public class Intro : MonoBehaviour
             StartCoroutine(TypeSentence("Ça, c'est moi."));
 
             RefChara.Instance.nous.SetActive(true);
+            RefBackgrounds.Instance.cielDark.SetActive(true);
         }
 
         else if (numeroDialogue == 2)
@@ -50,6 +51,7 @@ public class Intro : MonoBehaviour
 
 
             // DEZOOM
+            //RefBackgrounds.Instance.cielDark.DOScale(new(0.9f, 0.9f, 0.9f), 8);
             RefChara.Instance.nous.transform.DOScale(new Vector3(0.9f, 0.9f, 0.9f), 8);
             RefChara.Instance.nous.transform.DOLocalMove(originalPos, 10);
         }

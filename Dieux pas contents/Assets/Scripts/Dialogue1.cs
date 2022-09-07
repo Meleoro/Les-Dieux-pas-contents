@@ -35,6 +35,8 @@ public class Dialogue1 : MonoBehaviour
 
         if(numeroDialogue1 == 1)
         {
+            RefBackgrounds.Instance.resto.SetActive(true);
+            RefBackgrounds.Instance.cielDark.SetActive(false);
             ReferencesUI.Instance.nom.text = "???";
             StartCoroutine(TypeSentence( "Garçon !"));
 
@@ -110,6 +112,8 @@ public class Dialogue1 : MonoBehaviour
         // Passage à la partie suivante
         else
         {
+            RefBackgrounds.Instance.restoFlou.SetActive(false);
+            RefBackgrounds.Instance.resto.SetActive(false);
             MainManager.Instance.partie += 1;
             MainManager.Instance.SelectionDialogue();
         }
@@ -123,7 +127,10 @@ public class Dialogue1 : MonoBehaviour
 
         if (numeroDialogue2 == 1)
         {
-            RefChara.Instance.nous.SetActive(true);
+            RefBackgrounds.Instance.resto.SetActive(true);
+            RefBackgrounds.Instance.cielDark.SetActive(false);
+            RefChara.Instance.nous.SetActive(false);
+            RefChara.Instance.zeusHeureux.SetActive(true);
             ReferencesUI.Instance.nom.text = "Zeus";
             StartCoroutine(TypeSentence("Ahh merci garçon, c’est pas trop tôt, j’ai une faim de dieu hahaha."));
             
@@ -136,47 +143,51 @@ public class Dialogue1 : MonoBehaviour
             
         }
         
-        else if (numeroDialogue2 == 2)
+        else if (numeroDialogue2 == 3)
         {
             ReferencesUI.Instance.nom.text = "Zeus";
             StartCoroutine(TypeSentenceLent("…"));
             
         }
 
-        else if(numeroDialogue2 == 3)
+        else if(numeroDialogue2 == 4)
         {
             ReferencesUI.Instance.nom.text = "Zeus";
             StartCoroutine(TypeSentence("Pfffff !! Qu'est ce que c'est que ça !!??"));
 
+            RefCamera.Instance.CameraShake(3f, 5f);
+            RefChara.Instance.zeusHeureux.GetComponent<Image>().DOFade(0, 0.3f);
             RefChara.Instance.zeusHeureux.SetActive(false);
+            RefChara.Instance.zeusColere.GetComponent<Image>().DOFade(0, 0);
             RefChara.Instance.zeusColere.SetActive(true);
-        }
-
-        else if(numeroDialogue2 == 4)
-        {
-            ReferencesUI.Instance.nom.text = "Zeus";
-            StartCoroutine(TypeSentence("J’ai jamais mangé quelque chose d’aussi répugnant !!"));
+            RefChara.Instance.zeusColere.GetComponent<Image>().DOFade(1, 0.3f);
         }
 
         else if(numeroDialogue2 == 5)
         {
             ReferencesUI.Instance.nom.text = "Zeus";
-            StartCoroutine(TypeSentence("Comment ose tu me servir ça à moi, Zeus, le dieu des dieux ?"));
+            StartCoroutine(TypeSentence("J’ai jamais mangé quelque chose d’aussi répugnant !!"));
         }
 
         else if(numeroDialogue2 == 6)
         {
             ReferencesUI.Instance.nom.text = "Zeus";
-            StartCoroutine(TypeSentence("Je vais te faire regretter d’être venu au monde."));
+            StartCoroutine(TypeSentence("Comment ose tu me servir ça à moi, Zeus, le dieu des dieux ?"));
         }
 
         else if(numeroDialogue2 == 7)
         {
             ReferencesUI.Instance.nom.text = "Zeus";
-            StartCoroutine(TypeSentence("Et toi grognace ? Qu’est-ce que t’as à me regarder comme ça ? Tire-toi d’ici et que je te revois plus jamais !!!"));
+            StartCoroutine(TypeSentence("Je vais te faire regretter d’être venu au monde."));
         }
 
         else if(numeroDialogue2 == 8)
+        {
+            ReferencesUI.Instance.nom.text = "Zeus";
+            StartCoroutine(TypeSentence("Et toi grognace ? Qu’est-ce que t’as à me regarder comme ça ? Tire-toi d’ici et que je te revois plus jamais !!!"));
+        }
+
+        else if(numeroDialogue2 == 9)
         {
             ReferencesUI.Instance.nom.text = "Zeus";
             StartCoroutine(TypeSentence("Quant à toi…"));
