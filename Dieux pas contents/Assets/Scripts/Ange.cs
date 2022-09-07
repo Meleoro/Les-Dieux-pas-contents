@@ -85,25 +85,25 @@ public class Ange : MonoBehaviour
                     StartCoroutine(TypeSentence(message12));
                 }
 
-                else if(timer < duree12 + duree22 && !stop3)
+                else if(timer > duree12 && !stop3)
                 {
                     stop3 = true;
                     StartCoroutine(TypeSentence(message22));
                 }
 
-                else if(timer < duree12 + duree22 + duree32 && !stop4)
+                else if(timer > duree12 + duree22 && !stop4)
                 {
                     stop4 = true;
                     StartCoroutine(TypeSentence(message32));
                 }
 
-                else if (timer < duree12 + duree22 + duree32 + duree42 && !stop5)
+                else if (timer > duree12 + duree22 + duree32 && !stop5)
                 {
                     stop5 = true;
                     StartCoroutine(TypeSentence(message42));
                 }
 
-                else if (timer < duree12 + duree22 + duree32 + duree42 + duree52 && !stop6)
+                else if (timer > duree12 + duree22 + duree32 + duree42 && !stop6)
                 {
                     stop6 = true;
                     StartCoroutine(TypeSentence(message52));

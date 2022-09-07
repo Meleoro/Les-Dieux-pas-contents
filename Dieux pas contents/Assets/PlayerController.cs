@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour
     private float timer;
     public float cooldownGun;
 
+    public int health;
+    public int currentHealth;
+    public bool isDead;
+    public float cooldownHit;
+    private float timerHit;
+    private bool isHit;
+
 
     void Start()
     {
@@ -30,12 +37,15 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        // POSITION
         panierPos = Input.mousePosition;
         panierPos.z = Camera.main.nearClipPlane + 9.7f;
         worldPos = Camera.main.ScreenToWorldPoint(panierPos);
 
         transform.position = worldPos;
 
+
+        // ATTAQUE
         if (Input.GetKey(KeyCode.Mouse0) && timer < 0)
         {
             Attaque();
@@ -44,6 +54,26 @@ public class PlayerController : MonoBehaviour
         else
         {
             timer -= Time.deltaTime;
+        }
+
+
+        // INVINCIBILITE
+        if (isHit)
+        {
+            timerHit += Time.deltaTime;
+
+            if(timerHit > cooldownHit)
+            {
+                timerHit = 0;
+                isHit = false;
+            }
+        }
+
+
+        // MORT
+        if (currentHealth < 0)
+        {
+            isDead = true;
         }
     }
 
@@ -55,5 +85,18 @@ public class PlayerController : MonoBehaviour
 
         Destroy(oui, 6f);
         Destroy(oui, 6f);
+    }
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "JesusShot" && !isHit)
+        {
+            RefCamera.Instance.CameraShake(0.4f, 0.2f);
+
+            currentHealth -= 1;
+            isHit = true;
+        }
     }
 }

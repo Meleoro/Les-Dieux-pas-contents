@@ -55,12 +55,12 @@ public class Jesus : MonoBehaviour
     {
         timerGeneral += Time.deltaTime;
 
-        if(timerGeneral > 9 && timerGeneral < 10)
+        if(timerGeneral > 10 && timerGeneral < 11)
         {
             launchAnimation = true;
         }
 
-        else if(timerGeneral > 10)
+        else if(timerGeneral > 12)
         {
             cantAttack = false;
             surRail = true;
@@ -180,7 +180,7 @@ public class Jesus : MonoBehaviour
         {
             currentHealth -= 1;
 
-            gameObject.transform.DOShakePosition(0.04f, 0.1f);
+            gameObject.transform.DOShakePosition(1f, 0.1f);
         }
     }
 

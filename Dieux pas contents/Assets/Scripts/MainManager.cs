@@ -21,6 +21,7 @@ public class MainManager : MonoBehaviour
 
     public float timer;
     private bool stop;
+    private string activeMiniGame;
 
 
     private void Awake()
@@ -49,8 +50,6 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log(partie);
         if (!noControl)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -66,16 +65,47 @@ public class MainManager : MonoBehaviour
             SelectionDialogue();
         }
 
+        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.A))
+        {
+            partie = 1;
+            numeroScript = 1;
 
-        Debug.Log(noControl);
+            SelectionDialogue();
+        }
+
+        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.Z))
+        {
+            partie = 1;
+            numeroScript = 2;
+
+            SelectionDialogue();
+        }
+
+        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.E))
+        {
+            partie = 1;
+            numeroScript = 3;
+
+            SelectionDialogue();
+        }
+
+        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.R))
+        {
+            partie = 1;
+            numeroScript = 4;
+
+            SelectionDialogue();
+        }
+
+
         // TRANSITION ENTREE DANS SCENE DE MINI JEU
-        if (partie == 2 && SceneManager.GetActiveScene().name != "Oscar")
+        if (partie == 2 && SceneManager.GetActiveScene().name != activeMiniGame)
         {
             timer += Time.deltaTime;
 
             if(timer > 2.2f)
             {
-                SceneManager.LoadScene("Oscar");
+                SceneManager.LoadScene(activeMiniGame);
                 OuvertureScene(2);
 
                 RefChara.Instance.gameObject.SetActive(false);
@@ -174,6 +204,8 @@ public class MainManager : MonoBehaviour
         // ZEUS
         else if (numeroScript == 1)
         {
+            activeMiniGame = "Oscar";
+
             if(partie == 1)
             {
                 dialogue1.AvancerDialogue1();
@@ -201,6 +233,8 @@ public class MainManager : MonoBehaviour
         // MAKE MAKE
         else if (numeroScript == 2)
         {
+            activeMiniGame = "Make-Make";
+
             if (partie == 1)
             {
                 dialogue2.AvancerDialogue1();
@@ -225,6 +259,8 @@ public class MainManager : MonoBehaviour
 
         else if(numeroScript == 3)
         {
+            activeMiniGame = "Odin";
+
             if (partie == 1)
             {
                 dialogue3.AvancerDialogue1();
@@ -249,6 +285,8 @@ public class MainManager : MonoBehaviour
 
         else if (numeroScript == 4)
         {
+            activeMiniGame = "DARK JESUS";
+
             if (partie == 1)
             {
                 dialogue4.AvancerDialogue1();
@@ -281,5 +319,10 @@ public class MainManager : MonoBehaviour
     public void FermetureScene(float duree)
     {
         ReferencesUI.Instance.fondu.DOFade(1, duree);
+    }
+
+    public void LoadScene(string nomScene)
+    {
+        SceneManager.LoadScene(nomScene);
     }
 }
