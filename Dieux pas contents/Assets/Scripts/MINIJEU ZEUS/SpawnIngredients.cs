@@ -37,8 +37,12 @@ public class SpawnIngredients : MonoBehaviour
         startDelay = baseDelay;
         score = 0;
         canDelay = false;
-        StartCoroutine(StartAnge());
-        Ange.Instance.AngeApparait("OK nous y voila", 3, "Pour ta première mission comme Zeus te l'a dit est de préparer à manger", 4, "Pour cela rien de plus simple il suffit de récuperer les bons ingrédients dans la casserole",8,"Pour bouger la casserole il te faut simplement bouger la souris de gauche à droite de facon à ce que la casserole soit sous des pates' un steak ou bien une tomate.",6,"Mais SURTOUT PAS un sac poubelle ou une arrete de poisson. Sur ceux bonne chance élu de la prophétie!", 6);
+        StartCoroutine(StartAnge(27));
+        Ange.Instance.AngeApparait("OK nous y voila!", 2,
+            "Pour ta première mission comme Zeus te l'a dit, c'est de préparer à manger", 4,
+            "Pour cela rien de plus simple! Il te suffit de récuperer les bons ingrédients dans la casserole",6,
+            "Pour bouger la casserole il te faut simplement bouger la souris de gauche à droite de facon à ce que la casserole soit sous des pates, un steak ou bien une tomate.",8,
+            "Mais SURTOUT PAS un sac poubelle ou une arrête de poisson. Sur ceux bonne chance élu de la prophétie!", 6);
         
     }
 
@@ -66,8 +70,15 @@ public class SpawnIngredients : MonoBehaviour
 
         if (score == 2 && !ange2)
         {
+            canDelay = false;
             ange2 = true;
-            
+            StartCoroutine(StartAnge(20));
+            GameObject.Find("Ange").GetComponent<Animator>().SetBool("OHNO",true);
+            Ange.Instance.AngeApparait("Um, élu de la phophétie?", 5, 
+                "Vous semblez avoir amassé une quantitée non négligeable de déchets dans votre casserole", 5,
+                "N'oubliez pas, les bons ingrédients sont: les pates, les steaks et les tomates", 5,
+                "Tandis que les mauvais ingrédients (qu'il ne faut pas prendre) sont: les sacs poubelle et les arrêtes de poisson", 5,
+                "Tenez je me suis permis de faire en sorte que la casserole repousse les mauvais ingrédients, bonne chance!",5);
         }
 
 
@@ -87,9 +98,9 @@ public class SpawnIngredients : MonoBehaviour
         }
     }
 
-    private IEnumerator StartAnge()
+    private IEnumerator StartAnge(float time)
     {
-        yield return new WaitForSeconds(27);
+        yield return new WaitForSeconds(time);
         canDelay = true;
     }
     
