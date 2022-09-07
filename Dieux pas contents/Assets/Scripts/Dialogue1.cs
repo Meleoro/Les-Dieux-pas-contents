@@ -128,6 +128,7 @@ public class Dialogue1 : MonoBehaviour
 
         if (numeroDialogue2 == 1)
         {
+            RefBackgrounds.Instance.resto.SetActive(true);
             RefChara.Instance.nous.SetActive(false);
             RefChara.Instance.zeusHeureux.SetActive(true);
             ReferencesUI.Instance.nom.text = "Zeus";

@@ -109,9 +109,9 @@ public class MainManager : MonoBehaviour
                 OuvertureScene(2);
 
                 RefBackgrounds.Instance.resto.SetActive(false);
-                /*RefBackgrounds.Instance.valhalla.SetActive(false);
+                RefBackgrounds.Instance.valhalla.SetActive(false);
                 RefBackgrounds.Instance.ilePaques.SetActive(false);
-                RefBackgrounds.Instance.ciel.SetActive(false);*/
+                RefBackgrounds.Instance.ciel.SetActive(false);
 
                 RefChara.Instance.gameObject.SetActive(false);
                 ReferencesUI.Instance.dialogue.gameObject.SetActive(false);
