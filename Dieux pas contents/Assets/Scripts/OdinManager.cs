@@ -15,6 +15,7 @@ public class OdinManager : MonoBehaviour
     public bool accepter;
     public bool refuser;
     public bool timer;
+    public bool stop;
 
     public TextMeshProUGUI funnyText;
     public int textNumber;
@@ -36,6 +37,7 @@ public class OdinManager : MonoBehaviour
 
     private void Start()
     {
+        RefBackgrounds.Instance.valhalla.SetActive(false);
         StartCoroutine(WaitAnge());
         Bouttons.SetActive(false);
         Ange.Instance.AngeApparait("ELU !!!Vous le faites exprès ? Comment un élu de la prophécie peut-t-il être si incompétent !!", 3, 1, "Bref, ce n'est rien, vous pouvez encore vous ratrapez haha...", 2, 0,
@@ -139,8 +141,9 @@ public class OdinManager : MonoBehaviour
 
         }
 
-        if (Personne == 7)
+        if (Personne == 7 && stop == false)
         {
+            stop = true;
             MainManager.Instance.partie++;
             MainManager.Instance.SelectionDialogue();
         }

@@ -26,6 +26,8 @@ public class OeufManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        RefBackgrounds.Instance.ilePaques.SetActive(false);
+
         MainManager.Instance = GameObject.Find("GameManager").GetComponent<MainManager>();
         ange = GameObject.Find("Ange");
         StartCoroutine(AngeDialogue(28));

@@ -36,6 +36,7 @@ public class Dialogue3 : MonoBehaviour
 
             RefBackgrounds.Instance.valhalla.SetActive(true);
 
+            RefChara.Instance.Satan.SetActive(false);
             RefChara.Instance.makeMakeColere.SetActive(false);
             RefChara.Instance.makeMakeContent.SetActive(false);
         }
@@ -188,8 +189,6 @@ public class Dialogue3 : MonoBehaviour
         {
             ReferencesUI.Instance.nom.text = "Odin";
             StartCoroutine(TypeSentence("Bref, bon courage guerrier, à la revoyure !"));
-            RefBackgrounds.Instance.valhalla.SetActive(false);
-            
         }
 
         // Passage à la partie suivante
@@ -209,10 +208,10 @@ public class Dialogue3 : MonoBehaviour
         if (numeroDialogue2 == 1)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("Qu…Qu'est ce que ça veut dire ?"));
+            StartCoroutine(TypeSentence("Qu…Qu'est ce que ça veut dire ?"));
 
             RefChara.Instance.intiContent.SetActive(false);
-            RefChara.Instance.intiColere.SetActive(true);
+            RefChara.Instance.intiColere.SetActive(false);
 
             RefBackgrounds.Instance.valhalla.SetActive(true);
         }
@@ -220,19 +219,19 @@ public class Dialogue3 : MonoBehaviour
         else if (numeroDialogue2 == 2)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("Serait-ce des âmes de minables sans honneur ? Leur mort n’est même pas digne d’un chien. "));
+            StartCoroutine(TypeSentence("Serait-ce des âmes de minables sans honneur ? Leur mort n’est même pas digne d’un chien. "));
         }
 
         else if(numeroDialogue2 == 3)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("Douanier, des expliquations..."));
+            StartCoroutine(TypeSentence("Douanier, des expliquations..."));
         }
 
         else if(numeroDialogue2 == 4)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("Même vous n'êtes pas capable de faire votre travail… Je suis hautement déçu guerrier."));
+            StartCoroutine(TypeSentence("Même vous n'êtes pas capable de faire votre travail… Je suis hautement déçu guerrier."));
 
 
         }
@@ -240,7 +239,7 @@ public class Dialogue3 : MonoBehaviour
         else if(numeroDialogue2 == 5)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("Vous avez ici perdu non seulement votre poste mais surtout votre honneur…"));
+            StartCoroutine(TypeSentence("Vous avez ici perdu non seulement votre poste mais surtout votre honneur…"));
 
 
         }
@@ -248,7 +247,7 @@ public class Dialogue3 : MonoBehaviour
         else if(numeroDialogue2 == 6)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("Je vais vous renvoyer directement vers votre employeur. Plus jamais je n'embaucherai des douaniers du paradis (et j’irais toucher deux mots à ce Jésus Christ)."));
+            StartCoroutine(TypeSentence("Je vais vous renvoyer directement vers votre employeur. Plus jamais je n'embaucherai des douaniers du paradis (et j’irais toucher deux mots à ce Jésus Christ)."));
 
             RefChara.Instance.intiContent.SetActive(false);
             RefChara.Instance.intiColere.SetActive(true);
@@ -257,7 +256,7 @@ public class Dialogue3 : MonoBehaviour
         else if(numeroDialogue2 == 7)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("Je vais vous renvoyer directement vers votre employeur. Plus jamais je n'embaucherai des douaniers du paradis (et j’irais toucher deux mots à ce Jésus Christ)."));
+            StartCoroutine(TypeSentence("Je vais vous renvoyer directement vers votre employeur. Plus jamais je n'embaucherai des douaniers du paradis (et j’irais toucher deux mots à ce Jésus Christ)."));
 
             RefChara.Instance.intiContent.SetActive(false);
             RefChara.Instance.intiColere.SetActive(true);
@@ -266,7 +265,7 @@ public class Dialogue3 : MonoBehaviour
         else if(numeroDialogue2 == 8)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("Déguerpissez minable !"));
+            StartCoroutine(TypeSentence("Déguerpissez minable !"));
 
             RefChara.Instance.intiContent.SetActive(false);
             RefChara.Instance.intiColere.SetActive(true);
@@ -275,7 +274,7 @@ public class Dialogue3 : MonoBehaviour
         else if(numeroDialogue2 == 9)
         {
             ReferencesUI.Instance.nom.text = "Odin";
-            StartCoroutine(TypeSentenceLent("O, vous voulez peut-être que je vous appelle un taxi ? Bien sur je peux faire ça, aucun soucis. Bonne journée à vous !"));
+            StartCoroutine(TypeSentence("O, vous voulez peut-être que je vous appelle un taxi ? Bien sur je peux faire ça, aucun soucis. Bonne journée à vous !"));
 
             RefChara.Instance.odinColere.GetComponent<Image>().DOFade(0, 0.3f);
             RefChara.Instance.intiContent.SetActive(false);
