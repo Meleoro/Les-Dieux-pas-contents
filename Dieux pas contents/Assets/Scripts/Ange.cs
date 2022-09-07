@@ -98,7 +98,7 @@ public class Ange : MonoBehaviour
                     stop3 = true;
                     StartCoroutine(TypeSentence(message22));
 
-                    RefCamera.Instance.CameraShake(1, shake22);
+                    RefCamera.Instance.CameraShake(duree22 / 2f, shake22);
                 }
 
                 else if(timer > duree12 + duree22 + 2 && !stop4)
