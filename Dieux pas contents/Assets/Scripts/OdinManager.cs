@@ -15,6 +15,7 @@ public class OdinManager : MonoBehaviour
     public bool accepter;
     public bool refuser;
     public bool timer;
+    public bool stop;
 
     public TextMeshProUGUI funnyText;
     public int textNumber;
@@ -36,12 +37,12 @@ public class OdinManager : MonoBehaviour
 
     private void Start()
     {
-        Ange.Instance.AngeApparait("ELU !!!Vous le faites exprès ? Comment un élu de la prophécie peut-t-il être si incompétent !!", 3, 1, "Bref, ce n'est rien, vous pouvez encore vous ratrapez haha...", 2, 0,
-            "Il est temps de trier des âmes. Naturellement, je ne vous apprend rien en disant que seuls les grands guerriers de ce monde peuvent accéder au Valhalla.", 3, 0,
-            "Et pas les minables, morts de façon indigne. (je ne vous ai rien appris…n’est ce pas… ?)", 3, 0, "Aller courage elu, je crois en vous (je vais le tuer....)", 2, 0);
-
+        RefBackgrounds.Instance.valhalla.SetActive(false);
         StartCoroutine(WaitAnge());
         Bouttons.SetActive(false);
+        Ange.Instance.AngeApparait("ELU !!!Vous le faites exprès ? Comment un élu de la prophécie peut-t-il être si incompétent !!", 3, 1, "Bref, ce n'est rien, vous pouvez encore vous ratrapez haha...", 2, 0,
+            "Il est temps de trier des âmes. Naturellement, je ne vous apprend rien en disant que seuls les grands guerriers de ce monde peuvent accéder au Valhalla.", 3, 0, 
+            "Et pas les minables, morts de façon indigne. (je ne vous ai rien appris…n’est ce pas… ?)", 3, 0, "Aller courage elu, je crois en vous (je vais le tuer....)", 2, 0);
     }
 
     IEnumerator WaitAnge()
@@ -140,8 +141,9 @@ public class OdinManager : MonoBehaviour
 
         }
 
-        if (Personne == 7)
+        if (Personne == 7 && stop == false)
         {
+            stop = true;
             MainManager.Instance.partie++;
             MainManager.Instance.SelectionDialogue();
         }

@@ -227,7 +227,9 @@ public class Dialogue2 : MonoBehaviour
 
             RefBackgrounds.Instance.ilePaques.SetActive(true);
 
+            RefChara.Instance.Satan.SetActive(false);
             RefChara.Instance.makeMakeContent.SetActive(true);
+            RefChara.Instance.makeMakeContent.GetComponent<Image>().DOFade(1, 0.3f);
             RefChara.Instance.makeMakeColere.SetActive(false);
         }
 

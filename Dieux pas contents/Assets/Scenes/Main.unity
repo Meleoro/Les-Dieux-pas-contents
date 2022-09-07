@@ -1636,10 +1636,12 @@ MonoBehaviour:
   volume: {fileID: 848779707}
   originalPos: {x: 0, y: 0, z: 0}
   newPos: {x: 0, y: 0, z: 0}
+  timer: 0
   ange: {fileID: 505318514}
   boiteDialogue1: {fileID: 1484741527}
   boiteDialogue2: {fileID: 0}
   text: {fileID: 2073846887}
+  apparition: 0
 --- !u!114 &848779707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2819,7 +2821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031255852
 RectTransform:
   m_ObjectHideFlags: 0
